@@ -1,7 +1,7 @@
 import Main from './main';
 import Layout from './layout';
 import Home from './home';
-import GettingStarted from './getting-started';
+import GetStarted from './get-started';
 import Api from './api';
 import Examples from './examples';
 
@@ -9,7 +9,7 @@ let Pages = {
     Main,
     Layout,
     Home,
-    GettingStarted,
+    GetStarted,
     Api,
     Examples
 };

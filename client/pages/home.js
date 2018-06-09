@@ -1,7 +1,11 @@
 let Page = {
     view() {
         return [
-            v('article', v('h1', 'Welcome to Valyrian.js'))
+            v('article[data-background=white]', [
+                v('div#homemiddle', [
+                    v('img[src=/logo.png]')
+                ])
+            ])
         ];
     }
 };

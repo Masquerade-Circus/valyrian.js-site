@@ -1,6 +1,6 @@
 let Page = {
     links: [
-        {href: '/getting-started', title: 'Getting started'},
+        {href: '/getting-started', title: 'Get started'},
         {href: '/api', title: 'Api'},
         {href: '/examples', title: 'Examples'},
         {href: 'https://github.com/Masquerade-Circus/valyrian.js', title: 'Github'}
