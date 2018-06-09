@@ -1,0 +1,40 @@
+{
+  "name": "valyrian.js",
+  "version": "1.1.0",
+  "description": "Lightwiegth steel to forge PWAs. (Minimal Frontend framework with server side rendering inspired on Mithril and Hyperapp)",
+  "repository": "git@github.com:Masquerade-Circus/valyrian.js-site.git",
+  "author": "Masquerade <christian@masquerade-circus.net>",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "dev:server": "cross-env NODE_ENV=development nodemon -w ./server -w ./dist -w ./public server.js",
+    "dev:client": "cross-env NODE_ENV=development node rollup.js",
+    "build": "yarn build:assets && yarn build:client",
+    "build:assets": "cross-env NODE_ENV=production node build.js",
+    "build:client": "cross-env NODE_ENV=production node rollup.js",
+    "start": "cross-env NODE_ENV=production node server.js"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.6",
+    "micro": "^9.1.0",
+    "micro-ex-router": "^1.5.4",
+    "nodemon": "^1.14.11",
+    "recursive-readdir": "^2.2.2",
+    "rollup": "^0.57.1",
+    "rollup-plugin-async": "^1.2.0",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-includepaths": "^0.2.2",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.2.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-plugin-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "valyrian.js": "^1.1.1"
+  }
+}
