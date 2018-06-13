@@ -20,6 +20,7 @@ let Page = {
                         'data-button': '',
                         href: item.href,
                         target: item.href.indexOf('http') > -1 ? '_blank' : '',
+                        rel: item.href.indexOf('http') > -1 ? 'noopener' : '',
                         onclick(e) {
                             if (item.href.indexOf('http') === -1) {
                                 v.routes.go(item.href);

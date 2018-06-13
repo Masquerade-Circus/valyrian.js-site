@@ -7,6 +7,7 @@ let progress = require('rollup-plugin-progress');
 let uglify = require('rollup-plugin-uglify');
 let buble = require('rollup-plugin-buble');
 let json = require('rollup-plugin-json');
+let string = require('rollup-plugin-string');
 
 let uglifyOptions = {
     ecma: 5,
@@ -31,7 +32,9 @@ let inputOptions = {
             main: true,
             browser: true
         }),
-
+        string({
+            include: '**/*.svg'
+        }),
         commonjs({
             include: [
                 './node_modules/**'

@@ -1,9 +1,11 @@
+import logo from '../../public/logo.svg';
+
 let Page = {
     view() {
         return [
             v('article[data-background=white]', [
-                v('div#homemiddle', [
-                    v('img[src=/logo.png]')
+                v('div#home-middle', [
+                    v('div', v.trust(logo))
                 ])
             ])
         ];

@@ -5,3 +5,7 @@
     text-align: center;
     transform: translate(-50%,-50%);
 }
+
+svg{
+    fill: #6b59b8
+}
