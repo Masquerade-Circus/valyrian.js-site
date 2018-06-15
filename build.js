@@ -8,7 +8,7 @@ console.log('Generating service worker...');
 v.sw('./public/sw.js', {
     name: 'Valyrian.js',
     version: packageJson.version,
-    urls: ['/']
+    urls: ['/', '/index.min.js']
 })
     .then(() => {
         console.log('Generating service worker finished.');

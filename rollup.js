@@ -41,6 +41,7 @@ let inputOptions = {
             ], // Default: undefined
             // if false then skip sourceMap generation for CommonJS modules
             sourceMap: true // Default: true
+
         }),
         json(),
         buble()

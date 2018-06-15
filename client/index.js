@@ -13,10 +13,7 @@ router
 v.routes('body', router);
 
 if (v.is.browser) {
-    v.sw('./sw.js')
-        .then(() => {
-            console.log('SW registered');
-        });
+    v.sw('./sw.js');
 }
 
 // Export what is needed for the backend

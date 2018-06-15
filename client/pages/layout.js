@@ -13,11 +13,11 @@ let Page = {
                         v.routes.go('/');
                         e.preventDefault();
                     }}, 'Valyrian.js'),
-                    v('small', ' v1.1.1')
+                    ' v1.1.1'
                 ]),
                 v('nav', Page.links.map(item => {
                     return v('a', {
-                        'data-button': '',
+                        'data-button': true,
                         href: item.href,
                         target: item.href.indexOf('http') > -1 ? '_blank' : '',
                         rel: item.href.indexOf('http') > -1 ? 'noopener' : '',

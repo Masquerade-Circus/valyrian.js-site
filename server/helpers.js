@@ -89,10 +89,10 @@ let serveDir = function (dir) {
  * @description Helper function to render an html string
  * @method render
  * @param  {Object} htmlOrFunc     Html string or method returning an html string
- * @param  {String} html    Html string
+ * @param  {Object} headers    Headers object to add to the response
  * @return {Function} Middleware function to pass to express/micro
  */
-let render = (htmlOrFunc) => {
+let render = (htmlOrFunc, headers = {}) => {
     return async (req, res) => {
         let html;
         if (typeof htmlOrFunc === 'function') {
@@ -103,15 +103,13 @@ let render = (htmlOrFunc) => {
             html = htmlOrFunc;
         }
 
-        res.writeHead(200, {
+        res.writeHead(200, Object.assign({}, {
             'Content-Type': config.mimeTypes.html,
             'Content-Length': html.length,
             'Cache-Control': 'public, no-cache, no-store, must-revalidate',
             'Expires': '0',
             'Pragma': 'no-cache'
-        });
-
-        console.log(html);
+        }, headers));
 
         res.end(html);
     };
