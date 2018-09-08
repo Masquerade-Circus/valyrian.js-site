@@ -44,7 +44,9 @@ let inputOptions = {
 
         }),
         json(),
-        buble()
+        buble({
+            jsx: 'v'
+        })
     ],
     cache: undefined
 };

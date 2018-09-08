@@ -38,7 +38,7 @@
     "micro": "^9.1.0",
     "micro-ex-router": "^1.5.4",
     "recursive-readdir": "^2.2.2",
-    "valyrian.js": "^1.4.3"
+    "valyrian.js": "^2.0.3"
   },
   "now": {
     "alias": "valyrianjs"

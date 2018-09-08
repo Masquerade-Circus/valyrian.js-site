@@ -1,9 +1,5 @@
-let Page = {
-    view() {
-        return [
-            v('article', v('h1', 'Api'))
-        ];
-    }
-};
+import Layout from './layout';
 
-export default Page;
+export default v(() => <Layout>
+    <article><h1>Api</h1></article>
+</Layout>);
