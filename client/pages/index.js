@@ -6,12 +6,12 @@ import Api from './api';
 import Examples from './examples';
 
 let Pages = {
-    Main,
-    Layout,
-    Home,
-    GetStarted,
-    Api,
-    Examples
+  Main,
+  Layout,
+  Home,
+  GetStarted,
+  Api,
+  Examples
 };
 
 export default Pages;

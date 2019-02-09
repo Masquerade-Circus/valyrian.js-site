@@ -1,8 +1,86 @@
 import Layout from './layout';
 
-export default v(() => <Layout>
+export default () => (
+  <Layout>
     <div data-card="full-width">
-        <header><h1>Hyperscript</h1></header>
-        <section></section>
+      <header>
+        <h1>Hyperscript/JSX</h1>
+      </header>
+      <section>
+        <h2>Hyperscript</h2>
+        Like many other frameworks, Valyrian, in its core, makes use of Hyperscript to compose a virtual dom for the
+        view layer, and it follows the minimal way of hyperscript, so you can write any dom by calling Valyrian this
+        way:
+        {code(`
+// v(tagName, properties[, childnodes]) 
+return v('div', {id: 'valyrian'}, [
+    'An awesome framework',
+    v('small', null, 'It will surprise you')
+]);
+            `)}
+        The latest code will create the next view
+        {code(`
+<div id="valyrian">
+    An awesome framework <small>It will surprise you</small>
+</div>
+            `)}
+        <hr />
+        <h2>JSX</h2>
+        If you use it with a compiler like Webpack or Rollup you can and we encorage you to use JSX.
+        <br />
+        This way you can create the previous dom the way it is finally represented:
+        {code(`
+// You write 
+return <div id="valyrian">
+    An awesome framework <small>It will surprise you</small>
+</div>;
+            `)}
+        {code(`
+// And you get 
+<div id="valyrian">
+    An awesome framework <small>It will surprise you</small>
+</div>
+            `)}
+        <br />
+        <h3>Babel</h3>
+        With Babel you need to install the babel-plugin-transform-react-jsx plugin
+        <br />
+        Then in your <code>.babelrc</code> file:
+        {code(`
+{
+    "presets": ["..."],
+    "plugins": [
+        ["transform-react-jsx", {
+            "pragma": "v"
+        }]
+    ]
+  }
+            `)}
+        <br />
+        <h3>Buble</h3>
+        With Buble you only need to pass <code>jsx: 'v'</code> in the configuration object:
+        {code(`
+{
+    input: '...',
+    plugins: [
+        buble({
+            jsx: 'v'
+        })
+    ]
+  }
+            `)}
+        <hr />
+        <h2>Multiple root elements</h2>
+        Unlike many other frameworks, when you are working with the view layer with Valyrian, you are not limited to
+        return only one root node. You can return an array of nodes without any trouble and without adding any sugar
+        syntax, example:
+        {code(`
+return [ 
+    <span>Hello</span>, 
+    <span>World</span>
+];
+            `)}
+      </section>
     </div>
-</Layout>);
+  </Layout>
+);

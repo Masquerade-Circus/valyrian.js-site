@@ -4,23 +4,11 @@ let nodeResolve = require('rollup-plugin-node-resolve');
 let includepaths = require('rollup-plugin-includepaths');
 let filesize = require('rollup-plugin-filesize');
 let progress = require('rollup-plugin-progress');
-let uglify = require('rollup-plugin-uglify');
 let buble = require('rollup-plugin-buble');
 let json = require('rollup-plugin-json');
 let string = require('rollup-plugin-string');
-
-let uglifyOptions = {
-    ecma: 5,
-    mangle: true,
-    compress: {
-        warnings: false, // Suppress uglification warnings
-        pure_getters: true,
-        unsafe: true
-    },
-    output: {
-        comments: false
-    }
-};
+let { terser } = require('rollup-plugin-terser');
+let sourcemaps = require('rollup-plugin-sourcemaps');
 
 let inputOptions = {
     input: './client/index.js',
@@ -36,17 +24,14 @@ let inputOptions = {
             include: '**/*.svg'
         }),
         commonjs({
-            include: [
-                './node_modules/**'
-            ], // Default: undefined
+            include: ['./node_modules/**'], // Default: undefined
             // if false then skip sourceMap generation for CommonJS modules
             sourceMap: true // Default: true
-
         }),
         json(),
-        buble({
-            jsx: 'v'
-        })
+        sourcemaps(),
+        buble({ jsx: 'v', target: { chrome: 70, firefox: 60, node: 8 } }),
+        filesize()
     ],
     cache: undefined
 };
@@ -60,15 +45,15 @@ let outputOptions = {
 
 if (process.env.NODE_ENV === 'production') {
     outputOptions.sourcemap = false;
-    inputOptions.plugins.push(uglify(uglifyOptions));
-    inputOptions.plugins.push(filesize());
-    rollup.rollup(inputOptions)
-        .then(bundle => bundle.write(outputOptions))
+    inputOptions.plugins.push(terser({ warnings: 'verbose', sourcemap: false }));
+    rollup
+        .rollup(inputOptions)
+        .then((bundle) => bundle.write(outputOptions))
         .then(() => console.log('Bundle finished.'));
 }
 
 if (process.env.NODE_ENV !== 'production') {
-    inputOptions.plugins.push(filesize());
+    inputOptions.plugins.push(terser({ warnings: 'verbose' }));
 
     inputOptions.output = outputOptions;
     inputOptions.watch = {

@@ -74,3 +74,14 @@ h1, h2, h3, h4, h5{
     margin: 0;
 }
 ul{margin: 0}
+
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{background: transparent}
+code {
+    display: inline-block;
+    padding: 1rem 4rem;
+    margin: 0;
+    vertical-align: middle;
+}
+small{
+    font-size: 0.9em;
+}

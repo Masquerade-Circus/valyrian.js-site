@@ -11,4 +11,4 @@ v.routes('body', router);
 // }
 
 // Export what is needed for the backend
-export default {Pages};
+export default { Pages };
