@@ -1,16 +1,20 @@
 import Layout from '../layout';
 let Page = {
   sections: [
-    { title: 'What is Valyrian.js?', href: '/get-started' },
-    { title: 'Installation', href: '/get-started/installation' },
-    { title: 'Hyperscript/JSX', href: '/get-started/hyperscript' },
-    { title: 'Components', href: '/get-started/components' },
-    { title: 'Lifecycle methods', href: '/get-started/lifecycle-methods' },
-    { title: 'Plugin system', href: '/get-started/plugins' },
-    { title: 'Router plugin', href: '/get-started/router-plugin' },
-    { title: 'Request plugin', href: '/get-started/request-plugin' },
-    { title: 'Service worker plugin', href: '/get-started/service-worker-plugin' },
-    { title: 'Node plugin', href: '/get-started/node-plugin' }
+    { title: 'What is Valyrian.js?', 'v-route': '/get-started' },
+    { title: 'Installation', 'v-route': '/get-started/installation' },
+    { title: 'Hyperscript/JSX', 'v-route': '/get-started/hyperscript' },
+    { title: 'Components', 'v-route': '/get-started/components' },
+    { title: 'Lifecycle methods', 'v-route': '/get-started/lifecycle-methods' },
+    { title: 'Directives', 'v-route': '/get-started/directives', 'style': 'background: #ededed'},
+    { title: 'Plugin system', 'v-route': '/get-started/plugins' },
+    { title: 'Router plugin', 'v-route': '/get-started/router-plugin' },
+    { title: 'Request plugin', 'v-route': '/get-started/request-plugin' },
+    { title: 'Service worker plugin', 'v-route': '/get-started/service-worker-plugin' },
+    { title: 'Node plugin', 'v-route': '/get-started/node-plugin', 'style': 'background: #ededed' },
+    { title: 'Store plugin', 'v-route': '/get-started/store-plugin', 'style': 'background: #ededed' },
+    { title: 'Hooks plugin', 'v-route': '/get-started/hooks-plugin', 'style': 'background: #ededed' },
+    { title: 'Signals plugin', 'v-route': '/get-started/signals-plugin', 'style': 'background: #ededed' }
   ],
   view(props, ...children) {
     return (
@@ -21,23 +25,8 @@ let Page = {
             <div data-column="md-3 xs-12">
               <div data-card="true">
                 <section>
-                  <ul data-list="sm">
-                    {Page.sections.map((item) => {
-                      return (
-                        <li>
-                          <a
-                            title={item.title}
-                            href={item.href}
-                            onclick={(e) => {
-                              v.routes.go(item.href);
-                              e.preventDefault();
-                            }}
-                          >
-                            {item.title}
-                          </a>
-                        </li>
-                      );
-                    })}
+                  <ul data-list="sm" v-for={Page.sections}>
+                    {(item) => <li><a {...item}>{item.title}</a></li>}
                   </ul>
                 </section>
               </div>

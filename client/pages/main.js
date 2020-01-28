@@ -5,7 +5,7 @@ let Main = {
   title: 'Valyrian.js',
   version: version,
   description: description,
-  view(...children) {
+  view(props, ...children) {
     let view = (
       <html lang="en">
         <head>

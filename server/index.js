@@ -2,6 +2,14 @@ let micro = require('micro');
 let Router = require('micro-ex-router');
 let cors = require('cors');
 let compression = require('compression');
+let App = require('../public/index.min');
+let nodePlugin = require('valyrian.js/plugins/node');
+import app from '../public/index.min';
+
+console.log(app);
+
+v.usePlugin(nodePlugin);
+v.request.nodeUrl = 'http://localhost:3000';
 
 // Create a new router
 let router = Router();
@@ -11,14 +19,7 @@ router
   .use((req, res) => new Promise((next) => cors()(req, res, next)))
   .use((req, res) => new Promise((next) => compression()(req, res, next)))
   .use(Router.serveDir('./public'))
-  .use(Router.serveDir('./node_modules/valyrian.js/dist'))
   .get('/favicon.ico', (req, res) => Router.serveFile(res, './public/icons/favicon.ico'));
-
-// Require valyrian and main app
-let nodePlugin = require('valyrian.js/plugins/node');
-let App = require('../dist/index.min');
-v.use(nodePlugin);
-v.request.nodeUrl = 'http://localhost:3000';
 
 // Add Valyrian routes
 v.routes.get().forEach((path) =>
@@ -30,6 +31,11 @@ v.routes.get().forEach((path) =>
     })
   )
 );
+
+router.use((req, res) => {
+  res.statusCode = 404;
+  res.end('Not found');
+});
 
 v.inline('./node_modules/prismjs/themes/prism.css');
 
@@ -58,11 +64,6 @@ v.inline('./node_modules/prismjs/themes/prism.css');
 
 //     res.end(js);
 // });
-
-router
-  .get('/index.min.js', (req, res) => Router.serveFile(res, './dist/index.min.js'))
-  .get('/index.min.js.map', (req, res) => Router.serveFile(res, './dist/index.min.js.map'))
-  .use(() => 'Not found');
 
 // Init micro server
 micro(router).listen(3000, async () => {

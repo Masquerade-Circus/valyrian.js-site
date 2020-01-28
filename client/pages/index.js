@@ -5,7 +5,7 @@ import GetStarted from './get-started';
 import Api from './api';
 import Examples from './examples';
 
-let Pages = {
+export default {
   Main,
   Layout,
   Home,
@@ -13,5 +13,3 @@ let Pages = {
   Api,
   Examples
 };
-
-export default Pages;

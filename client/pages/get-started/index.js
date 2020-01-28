@@ -1,13 +1,17 @@
-import WhatIsValyrian from './what-is-valyrian';
-import Installation from './installation';
-import Hyperscript from './hyperscript';
-import Components from './components';
-import LifecycleMethods from './lifecycle-methods';
-import RouterPlugin from './router-plugin';
-import RequestPlugin from './request-plugin';
-import NodePlugin from './node-plugin';
-import ServiceWorkerPlugin from './service-worker-plugin';
-import Plugins from './plugins';
+import WhatIsValyrian from './01-what-is-valyrian';
+import Installation from './02-installation';
+import Hyperscript from './03-hyperscript';
+import Components from './04-components';
+import LifecycleMethods from './05-lifecycle-methods';
+import Directives from './06-directives';
+import Plugins from './07-plugin-system';
+import RouterPlugin from './08-router-plugin';
+import RequestPlugin from './09-request-plugin';
+import ServiceWorkerPlugin from './10-service-worker-plugin';
+import NodePlugin from './11-node-plugin';
+import StorePlugin from './12-store-plugin';
+import HooksPlugin from './13-hooks-plugin';
+import SignalsPlugin from './14-signals-plugin';
 
 export default {
   WhatIsValyrian,
@@ -15,9 +19,13 @@ export default {
   Hyperscript,
   Components,
   LifecycleMethods,
+  Directives,
+  Plugins,
+  StorePlugin,
   RouterPlugin,
   RequestPlugin,
-  NodePlugin,
   ServiceWorkerPlugin,
-  Plugins
+  NodePlugin,
+  HooksPlugin,
+  SignalsPlugin
 };

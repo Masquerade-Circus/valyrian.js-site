@@ -8,13 +8,13 @@ export default () => (
       </header>
       <section>
         <h2>Install</h2>
-        This plugin is installed with the main valyrian.js package, so, you only need to add it with the{' '}
-        <code>v.use()</code> method.
+        This plugin is installed with the main valyrian.js package, so, you only need to add it with the
+        <code>v.usePlugin()</code> method.
         {code(`
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
 
-v.use(Router);
+v.usePlugin(Router);
             `)}
         <hr />
         <h2>Features</h2>
@@ -37,10 +37,10 @@ v.use(Router);
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
 
-v.use(Router);
+v.usePlugin(Router);
 
 let Store = {world: 'world', up: 'up'};
-let Component = function() { return <div>Hello {this.world}, what's {this.up}</div>;};
+let Component = function() { return <div>Hello {Store.world}, what's {Store.up}</div>;};
 let NotFoundComponent = () => <div>Ups, no route was found.</div>;
 
 // Create a router
@@ -57,7 +57,6 @@ router
             // Set the params to the store or to the component
             Store.world = params.world;
             Store.up = params.up;
-            v.addState(Component, Store);
         },
         () => Component
     ])
@@ -90,10 +89,10 @@ v.routes('body', router);
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
 
-v.use(Router);
+v.usePlugin(Router);
 
 let Store = {world: 'world', country: 'México'};
-let Component = function () { return <div>Hello {this.world}, from {this.country}</div>;};
+let Component = function () { return <div>Hello {Store.world}, from {Store.country}</div>;};
 let NotFoundComponent = () => <div>Ups, no route was found.</div>;
 
 // Create a sub router
@@ -105,7 +104,6 @@ subrouter
             // Set the params to the store or to the component
             Store.world = params.world;
             Store.country = params.country;
-            v.addState(Component, Store);
         },
         () => Component
     ]);
@@ -129,7 +127,7 @@ v.routes('body', router);
 // client.js
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
-v.use(Router);
+v.usePlugin(Router);
 
 let Component = () => <div>Hello world</div>;
 let router = v.Router();
@@ -146,7 +144,7 @@ let app = express();
 // Require valyrian and main app
 require('./client.js');
 let nodePlugin = require('valyrian.js/plugins/node');
-v.use(nodePlugin);
+v.usePlugin(nodePlugin);
 
 // Create the container component 
 // We don't have jsx in here so we do it the hyperscript way
@@ -172,7 +170,7 @@ let router = Router();
 // Require valyrian and main app
 require('./client.js');
 let nodePlugin = require('valyrian.js/plugins/node');
-v.use(nodePlugin);
+v.usePlugin(nodePlugin);
 
 // Create the container component 
 // We don't have jsx in here so we do it the hyperscript way
@@ -187,17 +185,7 @@ v.routes.get().forEach((path) =>
 micro(router).listen(3000);
         `)}
         <small data-background="warning 50">
-          You will need to use the{' '}
-          <a
-            href="node-plugin"
-            onclick={(e) => {
-              v.routes.go('/get-started/node-plugin');
-              e.preventDefault();
-            }}
-          >
-            Node plugin
-          </a>{' '}
-          for SSR to work.
+          You will need to use the <a v-route='/get-started/node-plugin'>Node plugin</a> for SSR to work.
         </small>
       </section>
     </div>

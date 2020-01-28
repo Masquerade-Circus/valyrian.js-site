@@ -15,7 +15,7 @@ let Component = {
     world: 'World',
     id: 'example',
     view() {
-        return <div id={Component.id}>Hello {Component.world}</div>;
+        return <div id={this.id}>Hello {this.world}</div>;
     }
 };
 
@@ -30,11 +30,8 @@ v(Component);
         <h3>Stateful components</h3>
         {code(`
 let Component = function() { return <div id={this.id}>Hello {this.world}</div>;};
-let state = {
-    world: 'World',
-    id: 'example'
-};
-v.addState(Component, state);
+Component.world ='World';
+Component.id = 'example';
 
 v(Component);
 // Or 

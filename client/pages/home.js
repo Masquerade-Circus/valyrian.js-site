@@ -7,26 +7,14 @@ export default () => (
       <div id="home-middle">
         <div>{v.trust(logo)}</div>
         <br />
-        <div>
-          {Layout.links.map((item) => {
-            return (
-              <a
-                data-button="outline"
-                title={item.title}
-                target={item.target}
-                rel={item.rel}
-                href={item.href}
-                onclick={(e) => {
-                  if (item.href.indexOf('http') === -1) {
-                    v.routes.go(item.href);
-                    e.preventDefault();
-                  }
-                }}
-              >
-                {item.title}
-              </a>
-            );
-          })}
+        <div v-for={Layout.links}>
+          {(item) => {
+            if (item.route) {
+              return <a data-button='outline' v-route={item.route}>{item.title}</a>;
+            }
+
+            return <a data-button='outline' {...item}>{item.title}</a>;
+          }}
         </div>
       </div>
     </article>
