@@ -8,7 +8,7 @@ export default () => (
       </header>
       <section>
         <h2>Install</h2>
-        This plugin is installed with the main valyrian.js package, so, you only need to add it with the
+        This plugin is available with the main valyrian.js package, so, you only need to add it with the
         <code>v.usePlugin()</code> method.
         {code(`
 import 'valyrian.js';
@@ -40,7 +40,7 @@ import Router from 'valyrian.js/plugins/router.js';
 v.usePlugin(Router);
 
 let Store = {world: 'world', up: 'up'};
-let Component = function() { return <div>Hello {Store.world}, what's {Store.up}</div>;};
+let Component = () => <div>Hello {Store.world}, what's {Store.up}</div>;
 let NotFoundComponent = () => <div>Ups, no route was found.</div>;
 
 // Create a router
@@ -92,7 +92,7 @@ import Router from 'valyrian.js/plugins/router.js';
 v.usePlugin(Router);
 
 let Store = {world: 'world', country: 'México'};
-let Component = function () { return <div>Hello {Store.world}, from {Store.country}</div>;};
+let Component = () => <div>Hello {Store.world}, from {Store.country}</div>;
 let NotFoundComponent = () => <div>Ups, no route was found.</div>;
 
 // Create a sub router

@@ -8,7 +8,7 @@ export default () => (
       </header>
       <section>
         <h2>Install</h2>
-        This plugin is installed with the main valyrian.js package, so, you only need to add it with the
+        This plugin is available with the main valyrian.js package, so, you only need to add it with the
         <code>v.usePlugin()</code> method.
         {code(`
 import 'valyrian.js';

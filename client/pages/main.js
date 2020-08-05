@@ -14,7 +14,7 @@ let Main = {
           <meta name="description" content={Main.description} />
           <meta http-equiv="x-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimal-ui" />
-          <link href="/pure-material.css" rel="stylesheet" />
+          <link href="/dragonglass.css" rel="stylesheet" />
           <style>{v.inline.css()}</style>
           <link href="/main.css" rel="stylesheet" />
           <Links />

@@ -1,6 +1,9 @@
+:root{
+    --primary: #6a59b8
+}
+
 body>footer, body>header, [data-flexible-bar]{
-    background: #6a59b8;
-    color: #fff;
+
 }
 
 #home-middle{
@@ -63,12 +66,6 @@ body>footer>nav{
 [class*='auto']>*{flex: auto;}
 [class*='self-auto']{flex: auto;}
 
-[data-list*='sm']>li{line-height: 1}
-[data-list*='sm']>li>*:first-child{
-    padding: 8rem 8rem;
-    height: auto;
-}
-
 h1, h2, h3, h4, h5{
     font-weight: normal;
     margin: 0;
@@ -78,10 +75,55 @@ ul{margin: 0}
 .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{background: transparent}
 code {
     display: inline-block;
-    padding: 1rem 4rem;
-    margin: 0;
-    vertical-align: middle;
+    overflow: hidden;
+    background-color: var(--default-bright);
+    padding: 0 0.5em;
+    border-radius: 0.25rem;
 }
+pre {
+    background-color: var(--default-bright);
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+}
+pre>code{
+    display: block;
+}
+
+pre, code, pre>*, code>*{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    line-height: inherit;
+}
+
 small{
     font-size: 0.9em;
+}
+
+samp{
+    border: 1px solid var(--default-light);
+    padding: 1rem;
+    display: block;
+    border-radius: 0.5rem;;
+    margin: 1rem;
+}
+
+
+details:not([data-trigger]){
+    background-color: var(--default-bright);
+}
+
+details:not([data-trigger]) summary{
+    position: relative;
+    padding: .75em .75em;
+    line-height: 1;
+    display: block;
+    font-weight: 500;
+    white-space: nowrap;
+    outline: none;
+    text-decoration: none;
+    text-align: left;
+    background-color: var(--white);
+    transition: var(--animate-all-fastest);
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--primary);
 }

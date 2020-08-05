@@ -56,7 +56,7 @@
       "warn",
       { "max": 300, "skipBlankLines": true, "skipComments": true }
     ],
-    "max-len": ["error", 120],
+    "max-len": ["error", 220],
     "max-statements-per-line": ["error", { "max": 3 }]
   },
   "env": {

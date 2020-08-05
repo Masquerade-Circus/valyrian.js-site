@@ -17,10 +17,10 @@ let Page = {
         <nav v-for={Page.links}>
           {(item) => {
             if (item.route) {
-              return <a data-button v-route={item.route}>{item.title}</a>;
+              return <a class="btn" v-route={item.route}>{item.title}</a>;
             }
 
-            return <a data-button {...item}>{item.title}</a>;
+            return <a class="btn" {...item}>{item.title}</a>;
           }}
         </nav>
       </footer>

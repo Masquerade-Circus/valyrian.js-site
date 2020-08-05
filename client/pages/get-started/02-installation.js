@@ -27,6 +27,9 @@ require('valyrian.js');
         <h2>Globals</h2>
         Valyrian.js is intended to be used in both sides, backend and frontend. So, its core is implemented such way
         that it will be available globally through window.v or global.v.
+        <br />
+        For apps that need more than one mount, you can create many instance calling the method
+        <code>v.newInstance()</code>. This method will return a new clean instance.
       </section>
     </div>
   </Layout>

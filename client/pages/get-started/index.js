@@ -3,7 +3,7 @@ import Installation from './02-installation';
 import Hyperscript from './03-hyperscript';
 import Components from './04-components';
 import LifecycleMethods from './05-lifecycle-methods';
-import Directives from './06-directives';
+import Directives from './directives';
 import Plugins from './07-plugin-system';
 import RouterPlugin from './08-router-plugin';
 import RequestPlugin from './09-request-plugin';

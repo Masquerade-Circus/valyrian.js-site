@@ -48,6 +48,7 @@ v(Component, {id:'example'}, 'World');
 <Component id="example">World</Component>
                 `)}
         {code('<div id="example">Hello World</div>')}
+        <hr />
       </section>
     </div>
   </Layout>
