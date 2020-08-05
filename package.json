@@ -45,7 +45,7 @@
     "source-map-support": "^0.5.19",
     "valyrian.js": "^4.3.2"
   },
-  "now": {
-    "alias": "valyrianjs"
+  "engines": {
+    "node": ">=11.15.0"
   }
 }

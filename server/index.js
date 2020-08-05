@@ -66,6 +66,7 @@ v.inline('./node_modules/prismjs/themes/prism.css');
 // });
 
 // Init micro server
-micro(router).listen(3000, async () => {
-  process.stdout.write('Micro listening on port 3000\n');
+let port = process.env.PORT || 3000;
+micro(router).listen(port, async () => {
+  process.stdout.write(`Micro listening on port ${port}\n`);
 });
