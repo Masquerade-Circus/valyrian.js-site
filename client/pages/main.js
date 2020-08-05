@@ -1,5 +1,5 @@
 import Links from './links';
-import { version, description } from '../../package.json';
+import { version, description } from '../../node_modules/valyrian.js/package.json';
 
 let Main = {
   title: 'Valyrian.js',

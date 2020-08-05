@@ -13,7 +13,7 @@
     "build": "cross-env NODE_ENV=production node rollup.js",
     "build:assets": "cross-env NODE_ENV=production node build.js",
     "build:svgo": "cross-env NODE_ENV=production node svgo.js",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "start": "cross-env NODE_ENV=production node --require esm server.js"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",

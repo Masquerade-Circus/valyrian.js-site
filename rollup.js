@@ -50,7 +50,7 @@ let outputOptions = {
 
 if (process.env.NODE_ENV === 'production') {
   outputOptions.sourcemap = false;
-  inputOptions.plugins.push(terser({ warnings: 'verbose', sourcemap: false }));
+  inputOptions.plugins.push(terser({ warnings: 'verbose' }));
   rollup
     .rollup(inputOptions)
     .then((bundle) => bundle.write(outputOptions))
