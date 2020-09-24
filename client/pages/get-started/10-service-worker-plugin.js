@@ -32,7 +32,7 @@ if (!v.isNode){
         .catch(console.log);
 }
             `)}
-        <small data-background="warning 50">
+        <small class="bg-warning-lightest">
           If you use server-side renderign remember to first validate that you are in a browser environment before call
           this method.
         </small>

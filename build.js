@@ -1,13 +1,15 @@
 // Require valyrian and main app
-require('valyrian.js');
-
+import 'valyrian.js';
+import nodePlugin from 'valyrian.js/plugins/node';
 // Require package json to obtain the version
-let packageJson = require('./package.json');
+import packageJson from './node_modules/valyrian.js/package.json';
+
+v.usePlugin(nodePlugin);
 
 async function build() {
   console.log('Generating service worker...');
   await v.sw('./public/sw.js', {
-    name: 'Valyrian.js',
+    name: packageJson.name,
     version: packageJson.version,
     urls: ['/', '/index.min.js']
   });
@@ -20,8 +22,8 @@ async function build() {
 
     // favicons options
     path: '/icons/', // Path for overriding default icons path. `string`
-    appName: 'Valyrian.js', // Your application's name. `string`
-    appDescription: 'Lightwiegth steel to forge PWAs', // Your application's description. `string`
+    appName: packageJson.name, // Your application's name. `string`
+    appDescription: packageJson.description, // Your application's description. `string`
     developerName: 'Christian César Robledo López (Masquerade Circus)', // Your (or your developer's) name. `string`
     developerURL: 'http://masquerade-circus.net',
     dir: 'auto',

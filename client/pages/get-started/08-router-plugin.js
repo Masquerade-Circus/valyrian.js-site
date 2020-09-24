@@ -184,7 +184,7 @@ v.routes.get().forEach((path) =>
 // Init the server
 micro(router).listen(3000);
         `)}
-        <small data-background="warning 50">
+        <small class="bg-warning-lightest">
           You will need to use the <a v-route='/get-started/node-plugin'>Node plugin</a> for SSR to work.
         </small>
       </section>

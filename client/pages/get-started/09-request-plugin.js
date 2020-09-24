@@ -97,7 +97,7 @@ v.request.urls.api = 'http://example.com/api';
 v.request.get('/hello') // http://localhost:3000/hello
 v.request.get('http://example.com/api/hello') // http://localhost:3000/hello
             `)}
-        <small data-background="warning 50">
+        <small class="bg-warning-lightest">
           You will need to use the <a v-route='/get-started/node-plugin'>Node plugin</a> for SSR to work.
         </small>
       </section>

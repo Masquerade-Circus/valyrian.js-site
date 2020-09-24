@@ -6,7 +6,8 @@ let Main = {
   version: version,
   description: description,
   view(props, ...children) {
-    let view = (
+    let view = [
+      '<!DOCTYPE html>',
       <html lang="en">
         <head>
           <title>{Main.title}</title>
@@ -14,17 +15,15 @@ let Main = {
           <meta name="description" content={Main.description} />
           <meta http-equiv="x-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimal-ui" />
-          <link href="/dragonglass.css" rel="stylesheet" />
-          <style>{v.inline.css()}</style>
-          <link href="/main.css" rel="stylesheet" />
+          <style>{v.inline.uncss()}</style>
           <Links />
         </head>
         <body>
           {children}
-          <script src="/index.min.js" />
+          <script>{v.inline.js()}</script>
         </body>
       </html>
-    );
+    ];
 
     return view;
   }

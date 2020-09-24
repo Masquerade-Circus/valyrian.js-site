@@ -16,7 +16,7 @@ let Page = {
                 <a title="Components"v-route="/get-started/components" class="btn text-left" style="margin: 0px;">Components</a>
                 <a title="Lifecycle methods"v-route="/get-started/lifecycle-methods" class="btn text-left" style="margin: 0px;">Lifecycle methods</a>
                 <span style="margin: 0px; background: white; display: block;" class="u-p-sm">Directives</span>
-                <div class="bg-default-lightest u-pl-sm">
+                <div class="bg-default-bright u-pl-sm">
                   <a title="Built in directives" v-route="/get-started/directives/built-in-directives" class="btn text-left" style="margin: 0px; display: blocK">Built in directives</a>
                   <a title="v-model" v-route="/get-started/directives/v-model" class="btn text-left" style="margin: 0px; display: blocK">v-model</a>
                   <a title="Custom directives" v-route="/get-started/directives/custom-directives" class="btn text-left" style="margin: 0px; display: blocK">Custom directives</a>

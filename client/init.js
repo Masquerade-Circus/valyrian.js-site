@@ -9,7 +9,7 @@ import 'prismjs/components/prism-jsx';
 (v.isNode ? global : window).code = (str, language = 'jsx') => {
   return (
     <pre>
-      <code>{v.trust(Prism.highlight(str, Prism.languages[language], language))}</code>
+      <code v-html={Prism.highlight(str, Prism.languages[language], language)}></code>
     </pre>
   );
 };
@@ -18,5 +18,3 @@ v.usePlugin(Router);
 v.usePlugin(Request);
 v.usePlugin(Sw);
 v.usePlugin(VModel);
-
-console.log({ v });

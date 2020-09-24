@@ -1,13 +1,13 @@
 let Log = () => {};
 
 let config = {
-  version: 'v1.1.0::',
-  name: 'Valyrian.js',
-  urls: ["/"]
+  version: 'v4.3.2::',
+  name: 'valyrian.js',
+  urls: ["/","/index.min.js"]
 };
 
 // Function to add the network response to the cache
-let fetchedFromNetwork = event => response => {
+let fetchedFromNetwork = (event) => (response) => {
   Log('WORKER: fetch response from network.', event.request.url);
   if (!response || response.status !== 200 || response.type !== 'basic') {
     return;
@@ -16,9 +16,9 @@ let fetchedFromNetwork = event => response => {
   let cacheCopy = response.clone();
   caches
     .open(config.version + config.name)
-    .then(cache => cache.put(event.request, cacheCopy))
+    .then((cache) => cache.put(event.request, cacheCopy))
     .then(() => Log('WORKER: fetch response stored in cache.', event.request.url))
-    .catch(err => Log('WORKER: fetch response could not be stored in cache.', err));
+    .catch((err) => Log('WORKER: fetch response could not be stored in cache.', err));
   return response;
 };
 
@@ -35,10 +35,8 @@ let unableToResolve = () => {
 };
 
 // Fetch listener
-self.addEventListener("fetch", event => {
+self.addEventListener('fetch', (event) => {
   Log('WORKER: fetch event in progress.', event.request.url);
-
-  let url = new URL(event.request.url);
 
   // We only handle Get requests all others let them pass
   if (event.request.method !== 'GET') {
@@ -48,15 +46,15 @@ self.addEventListener("fetch", event => {
   // TODO: Make a callback available here to filter if this request must be cached or let it pass directly
   // This callback must return true or false
 
-  Log('WORKER: fetchevent for ' + url);
+  Log('WORKER: fetchevent for ' + event.request.url);
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
+    caches.match(event.request).then((cached) => {
       Log('WORKER: fetch event', cached ? '(cached)' : '(network)', event.request.url);
 
       let network = fetch(event.request)
         .then(fetchedFromNetwork(event), unableToResolve)
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           return caches.match('/');
         });
@@ -66,23 +64,27 @@ self.addEventListener("fetch", event => {
   );
 });
 
-self.addEventListener("install", event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    // We can't use cache.add() here, since we want OFFLINE_URL to be the cache key, but
-    // the actual URL we end up requesting might include a cache-busting parameter.
-    caches.open(config.version + config.name)
-      .then(cache => cache.addAll(config.urls))
+    caches
+      .open(config.version + config.name)
+      .then((cache) => cache.addAll(config.urls))
   );
 });
 
-self.addEventListener("activate", event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(
-        // Filter by keys that don't start with the latest version prefix.
-        keys.filter(key => !key.startsWith(config.version))
-          .map(key => caches.delete(key)) // Return a promise that's fulfilled when each outdated cache is deleted.
-      ))
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            // Filter by keys that don't start with the latest version prefix.
+            .filter((key) => !key.startsWith(config.version))
+            // Return a promise that's fulfilled when each outdated cache is deleted.
+            .map((key) => caches.delete(key))
+        )
+      )
       .then(() => self.clients.claim())
   );
 });

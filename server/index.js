@@ -4,69 +4,60 @@ let cors = require('cors');
 let compression = require('compression');
 let App = require('../public/index.min');
 let nodePlugin = require('valyrian.js/plugins/node');
-import app from '../public/index.min';
 
-console.log(app);
+process.on('unhandledRejection', console.log);
+process.on('uncaughtException', console.log);
 
-v.usePlugin(nodePlugin);
-v.request.nodeUrl = 'http://localhost:3000';
+const HtmlExpirationTime = 7 * 24 * 60 * 60 * 1000; // Seven days in milliseconds
 
-// Create a new router
-let router = Router();
+async function start() {
+  let port = process.env.PORT || 3000;
 
-// Add public routes
-router
-  .use((req, res) => new Promise((next) => cors()(req, res, next)))
-  .use((req, res) => new Promise((next) => compression()(req, res, next)))
-  .use(Router.serveDir('./public'))
-  .get('/favicon.ico', (req, res) => Router.serveFile(res, './public/icons/favicon.ico'));
+  v.usePlugin(nodePlugin);
+  v.request.nodeUrl = `http://localhost:${port}`;
 
-// Add Valyrian routes
-v.routes.get().forEach((path) =>
-  router.get(
-    path,
-    Router.render(async (req) => '<!DOCTYPE html>' + (await v.routes.go(App.Pages.Main, req.url)), {
-      'Cache-Control': 'public, max-age=2592000',
-      Expires: new Date(Date.now() + 604800000).toUTCString()
-    })
-  )
-);
+  // Inline styles and javascript
+  let renderedHtml = v.routes.get().map(path => v.routes.go(App.Pages.Main, path));
+  await v.inline(
+    './public/index.min.js',
+    './node_modules/prismjs/themes/prism.css',
+    './public/dragonglass.css',
+    './public/main.css'
+  );
 
-router.use((req, res) => {
-  res.statusCode = 404;
-  res.end('Not found');
-});
+  await v.inline.uncss(renderedHtml, {
+    ignore: [/open/gi],
+    minify: true
+  });
 
-v.inline('./node_modules/prismjs/themes/prism.css');
+  // Create a new router
+  let router = Router();
 
-// // Inline styles and javascript
-// let renderedHtml = v.routes().map(path => v.routes.go(path, App.Pages.Main));
-// v.inline(
-//     './node_modules/valyrian.js/dist/valyrian.min.js',
-//     './dist/index.min.js',
-//     'https://masquerade-circus.github.io/pure-material-css/css/pure-material.css',
-//     './public/main.css'
-// )
-//     .then(() => v.inline.uncss(renderedHtml, {
-//         ignore: [/^\.slide/, /drawer/gi, /open/gi],
-//         minify: false
-//     }));
+  // Add public routes
+  router
+    .use((req, res) => new Promise((next) => cors()(req, res, next)))
+    .use((req, res) => new Promise((next) => compression()(req, res, next)))
+    .use(Router.serveDir('./public'));
 
-// router.get('/index.min.js', (req, res) => {
-//     let js = v.inline.js();
-//     res.writeHead(200, {
-//         'Content-Type': "application/javascript",
-//         'Content-Length': js.length,
-//         'Cache-Control': 'public, no-cache, no-store, must-revalidate',
-//         'Expires': '0',
-//         'Pragma': 'no-cache'
-//     });
+  // Add Valyrian routes
+  v.routes.get().forEach((path) =>
+    router.get(
+      path,
+      Router.render(async (req) => await v.routes.go(App.Pages.Main, req.url), {
+        'Cache-Control': 'public, max-age=2592000',
+        Expires: new Date(Date.now() + HtmlExpirationTime).toUTCString()
+      })
+    )
+  );
 
-//     res.end(js);
-// });
+  // If we get to this point throw a 404 not found error
+  router.use((req, res) => {
+    res.statusCode = 404;
+    res.end('Not found');
+  });
 
-// Init micro server
-let port = process.env.PORT || 3000;
-micro(router).listen(port, async () => {
-  process.stdout.write(`Micro listening on port ${port}\n`);
-});
+  // Init micro server
+  micro(router).listen(port, () => process.stdout.write(`Micro listening on port ${port}\n`));
+}
+
+start();

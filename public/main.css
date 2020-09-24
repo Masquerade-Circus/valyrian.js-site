@@ -127,3 +127,4 @@ details:not([data-trigger]) summary{
     cursor: pointer;
     color: var(--primary);
 }
+

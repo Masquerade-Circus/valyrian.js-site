@@ -63,7 +63,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   inputOptions.output = outputOptions;
   inputOptions.watch = {
-    include: ['./client/**'],
+    include: ['./client/**', './public/main.css'],
     chokidar: false
   };
 
