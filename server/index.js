@@ -8,7 +8,7 @@ let nodePlugin = require('valyrian.js/plugins/node');
 process.on('unhandledRejection', console.log);
 process.on('uncaughtException', console.log);
 
-const HtmlExpirationTime = 7 * 24 * 60 * 60 * 1000; // Seven days in milliseconds
+const HtmlExpirationTime = 1 * 60 * 1000;
 
 async function start() {
   let port = process.env.PORT || 3001;
@@ -44,7 +44,7 @@ async function start() {
     router.get(
       path,
       Router.render(async (req) => await v.routes.go(App.Pages.Main, req.url), {
-        'Cache-Control': 'public, max-age=2592000',
+        'Cache-Control': 'no-cache',
         Expires: new Date(Date.now() + HtmlExpirationTime).toUTCString()
       })
     )

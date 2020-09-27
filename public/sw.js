@@ -1,7 +1,7 @@
 let Log = () => {};
 
 let config = {
-  version: "v5.0.1::",
+  version: "v5.0.2::",
   name: "valyrian.js",
   urls: ["/"]
 };

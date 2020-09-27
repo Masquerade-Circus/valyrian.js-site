@@ -1,8 +1,8 @@
 // Require valyrian and main app
-import 'valyrian.js';
-import nodePlugin from 'valyrian.js/plugins/node';
+require('valyrian.js');
+const nodePlugin = require('valyrian.js/plugins/node');
 // Require package json to obtain the version
-import packageJson from './node_modules/valyrian.js/package.json';
+const packageJson = require('./node_modules/valyrian.js/package.json');
 
 v.usePlugin(nodePlugin);
 
