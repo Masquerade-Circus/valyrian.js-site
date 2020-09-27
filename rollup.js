@@ -30,7 +30,7 @@ let inputOptions = {
       target: { chrome: 70, firefox: 60, safari: 10, node: 8.7 }
     }),
     commonjs({
-      include: ['./node_modules/**'], // Default: undefined
+      include: ['./node_modules/**', './client/**'], // Default: undefined
       // if false then skip sourceMap generation for CommonJS modules
       sourceMap: true // Default: true
     }),

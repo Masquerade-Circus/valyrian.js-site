@@ -2,8 +2,9 @@
     --primary: #6a59b8
 }
 
-body>footer, body>header, [data-flexible-bar]{
 
+body>footer, body>header{
+    color: white;
 }
 
 #home-middle{

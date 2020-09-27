@@ -11,7 +11,7 @@ process.on('uncaughtException', console.log);
 const HtmlExpirationTime = 7 * 24 * 60 * 60 * 1000; // Seven days in milliseconds
 
 async function start() {
-  let port = process.env.PORT || 3000;
+  let port = process.env.PORT || 3001;
 
   v.usePlugin(nodePlugin);
   v.request.nodeUrl = `http://localhost:${port}`;

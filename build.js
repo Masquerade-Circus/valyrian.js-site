@@ -11,7 +11,7 @@ async function build() {
   await v.sw('./public/sw.js', {
     name: packageJson.name,
     version: packageJson.version,
-    urls: ['/', '/index.min.js']
+    urls: ['/']
   });
 
   console.log('Generating service worker finished.');

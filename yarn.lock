@@ -4302,10 +4302,10 @@ validate-npm-package-name@^3.0.0:
   dependencies:
     builtins "^1.0.3"
 
-valyrian.js@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/valyrian.js/-/valyrian.js-5.0.0.tgz#af6b667708830d5d8c14850c839c50f003856940"
-  integrity sha512-0O8z0fwb+sDPQZHBLsIWh0mh9ZwJebXsf5dpThZGr03oLW2HuoxChlEz/zuPDrB/zNXOtKXvxI3gzry3uzPMKw==
+valyrian.js@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/valyrian.js/-/valyrian.js-5.0.1.tgz#ff3ade2add21b9229ed5fc12bab5bc64c0fe16ce"
+  integrity sha512-8yHdw+jlhVAMLLy7PvfZCRbGpZTnn69a0qPSNLKhM15sTziG6N5J1RLdIN7Rsjy5+aTt2FNUszjC4BQqxHmZtg==
   dependencies:
     clean-css "^4.2.3"
     favicons "^6.2.0"

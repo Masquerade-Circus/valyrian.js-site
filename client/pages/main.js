@@ -14,7 +14,7 @@ let Main = {
           <meta charset="utf-8" />
           <meta name="description" content={Main.description} />
           <meta http-equiv="x-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimal-ui" />
+          <meta name="viewport" content="width=device-width,initial-scale=1"/>
           <style>{v.inline.uncss()}</style>
           <Links />
         </head>
