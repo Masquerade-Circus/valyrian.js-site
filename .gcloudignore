@@ -1,9 +1,9 @@
 .vscode
-node_modules
+node_modules/
 .eslintignore
 .eslintrc
 .gcloudignore
-.git
+#!include:.gitignore
 .gitignore
 app.yaml
 
