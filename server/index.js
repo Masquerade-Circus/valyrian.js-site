@@ -24,18 +24,11 @@ async function start() {
   v.request.nodeUrl = `http://localhost:${port}`;
 
   // Inline styles and javascript
-  let renderedHtml = v.routes
-    .get()
-    .map((path) => v.routes.go(App.Pages.Main, path));
-  await v.inline(
-    "./public/index.min.js",
-    "./node_modules/prismjs/themes/prism.css",
-    "./public/dragonglass.css",
-    "./public/main.css"
-  );
+  let renderedHtml = v.routes.get().map((path) => v.routes.go(App.Pages.Main, path));
+  await v.inline("./public/index.min.js", "./node_modules/prismjs/themes/prism.css", "./public/dragonglass.css", "./public/main.css");
 
   await v.inline.uncss(renderedHtml, {
-    ignore: [/open/gi],
+    ignore: [/open/gi, /--elevation/gi, ":root"],
     minify: true
   });
 
@@ -66,9 +59,7 @@ async function start() {
   });
 
   // Init micro server
-  micro(router).listen(port, () =>
-    process.stdout.write(`Micro listening on port ${port}\n`)
-  );
+  micro(router).listen(port, () => process.stdout.write(`Micro listening on port ${port}\n`));
 }
 
 start();

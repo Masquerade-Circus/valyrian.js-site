@@ -1,39 +1,37 @@
-import Layout from './layout';
+import Section from "../../components/Section";
+import Layout from "./layout";
 
 export default () => (
-  <Layout>
-    <div data-card="full-width">
-      <header>
-        <h1>Router plugin</h1>
-      </header>
-      <section>
-        <h2>Install</h2>
-        This plugin is available with the main valyrian.js package, so, you only need to add it with the
-        <code>v.usePlugin()</code> method.
-        {code(`
+  <Layout title="Router plugin">
+    <Section title="Router plugin" />
+    <Section title="Install">
+      This plugin is available with the main valyrian.js package, so, you only need to add it with the
+      <code>v.usePlugin()</code> method.
+      {code(`
 import 'valyrian.js';
-import Router from 'valyrian.js/plugins/router.js';
+import Router from 'valyrian.js/plugins/router';
 
 v.usePlugin(Router);
             `)}
-        <hr />
-        <h2>Features</h2>
-        <ul>
-          <li>
-            Default returned Components. <small>The router will mount the first returned Component.</small>
-          </li>
-          <li>
-            Parametrized routes. <small>You can use express like named parameters.</small>
-          </li>
-          <li>"Use" middlewares.</li>
-          <li>Arrays of middlewares.</li>
-          <li>Mix single middlewares and array of middlewares.</li>
-          <li>Use of subrouters.</li>
-          <li>Server side rendering</li>
-        </ul>
-        <hr />
-        <h2>Use</h2>
-        {code(`
+    </Section>
+    <Section title="Features">
+      <ul>
+        <li>
+          Default returned Components. <small>The router will mount the first returned Component.</small>
+        </li>
+        <li>
+          Parametrized routes. <small>You can use express like named parameters.</small>
+        </li>
+        <li>"Use" middlewares.</li>
+        <li>Arrays of middlewares.</li>
+        <li>Mix single middlewares and array of middlewares.</li>
+        <li>Use of subrouters.</li>
+        <li>Server side rendering</li>
+      </ul>
+    </Section>
+
+    <Section title="Use">
+      {code(`
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
 
@@ -83,9 +81,10 @@ router
 // Assign routes to Valyrian.js
 v.routes('body', router);
             `)}
-        <hr />
-        <h2>Use of subrouters</h2>
-        {code(`
+    </Section>
+
+    <Section title="Subrouters">
+      {code(`
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
 
@@ -120,10 +119,11 @@ router
 // Assign routes to Valyrian.js
 v.routes('body', router);
             `)}
-        <hr />
-        <h2>Server side rendering</h2>
-        Assume this client side app
-        {code(`
+    </Section>
+
+    <Section title="Server side rendering">
+      Assume this client side app
+      {code(`
 // client.js
 import 'valyrian.js';
 import Router from 'valyrian.js/plugins/router.js';
@@ -135,8 +135,8 @@ router
     .get('/', () => Component)
     .get('/hello/:world/whats/:up', () => Component);
         `)}
-        Implement SSR with Express
-        {code(`
+      Implement SSR with Express
+      {code(`
 // server.js with Express
 let express = require('express');
 let app = express();
@@ -148,7 +148,7 @@ v.usePlugin(nodePlugin);
 
 // Create the container component 
 // We don't have jsx in here so we do it the hyperscript way
-let HtmlComponent = (null, ...children) => v('html', null, v('body', null, children));
+let HtmlComponent = (null, ...children) => ['<!DOCTYPE html>', v('html', null, v('body', null, children))];
 
 // Add Valyrian routes
 v.routes.get().forEach((path) =>
@@ -158,8 +158,8 @@ v.routes.get().forEach((path) =>
 // Init the server
 app.listen(3000);
         `)}
-        Implement SSR with Micro
-        {code(`
+      Implement SSR with Micro
+      {code(`
 // server.js with Micro
 let micro = require('micro');
 let Router = require('micro-ex-router');
@@ -174,7 +174,7 @@ v.usePlugin(nodePlugin);
 
 // Create the container component 
 // We don't have jsx in here so we do it the hyperscript way
-let HtmlComponent = (null, ...children) => v('html', null, v('body', null, children));
+let HtmlComponent = (null, ...children) => ['<!DOCTYPE html>', v('html', null, v('body', null, children))];
 
 // Add Valyrian routes
 v.routes.get().forEach((path) =>
@@ -184,10 +184,9 @@ v.routes.get().forEach((path) =>
 // Init the server
 micro(router).listen(3000);
         `)}
-        <small class="bg-warning-lightest">
-          You will need to use the <a v-route='/get-started/node-plugin'>Node plugin</a> for SSR to work.
-        </small>
-      </section>
-    </div>
+      <small class="bg-warning-lightest">
+        You will need to use the <a v-route="/get-started/node-plugin">Node plugin</a> for SSR to work.
+      </small>
+    </Section>
   </Layout>
 );

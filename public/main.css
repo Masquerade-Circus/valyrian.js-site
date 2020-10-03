@@ -1,131 +1,208 @@
-:root{
-    --primary: #6a59b8
+:root {
+  --primary: #6a59b8;
 }
 
-
-body>footer, body>header{
-    color: white;
+body > footer,
+body > header {
+  color: white;
 }
 
-#home-middle{
-    transform: translate(-50%,-50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    max-width: 1024px;
-    text-align: center;
+#home-middle {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 1024px;
+  text-align: center;
 }
 
-#home-middle svg{width: 100%;max-width: 560px;display: block;margin: 0 auto; fill: #6a59b8}
-
-body>article>[data-card]{
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
+#home-middle svg {
+  width: 100%;
+  max-width: 560px;
+  display: block;
+  margin: 0 auto;
+  fill: #6a59b8;
 }
 
-body>footer>nav{
-    justify-content: flex-start;
+[data-card~="full-width"] {
+  margin-right: 0;
+  margin-left: 0;
 }
 
+body > footer > nav {
+  justify-content: flex-start;
+}
 
 /*** Flex ***/
-[class*='flex']{display: flex;}
-[class*='flex']>*{flex: 1 0;}
-/* Direction */
-[class*='row']{flex-direction: row;}
-[class*='row-reverse']{flex-direction: row-reverse;}
-[class*='column']{flex-direction: column;}
-[class*='column-reverse']{flex-direction: column-reverse;}
-/* Wrap */
-[class*='nowrap']{flex-wrap: nowrap;}
-[class*='wrap']{flex-wrap: wrap;}
-[class*='wrap-reverse']{flex-wrap: wrap-reverse;}
-/* Justify content */
-[class*='flex-start']{justify-content: flex-start;}
-[class*='flex-end']{justify-content: flex-end;}
-[class*='center']{justify-content: center;}
-[class*='space-between']{justify-content: space-between;}
-[class*='space-around']{justify-content: space-around;}
-/* Align items */
-[class*='align-flex-start']{align-items: flex-start;}
-[class*='align-self-flex-start']{align-self: flex-start;}
-[class*='align-flex-end']{align-items: flex-end;}
-[class*='align-self-flex-end']{align-self: flex-end;}
-[class*='align-center']{align-items: center;}
-[class*='align-self-center']{align-self: center;}
-[class*='align-baseline']{align-items: baseline;}
-[class*='align-self-baseline']{align-self: baseline;}
-[class*='align-stretch']{align-items: stretch;}
-[class*='align-self-stretch']{align-self: stretch;}
-/* Flex type */
-[class*='inherit']>*{flex: inherit;}
-[class*='self-inherit']{flex: inherit;}
-[class*='initial']>*{flex: initial;}
-[class*='self-initial']{flex: initial;}
-[class*='auto']>*{flex: auto;}
-[class*='self-auto']{flex: auto;}
-
-h1, h2, h3, h4, h5{
-    font-weight: normal;
-    margin: 0;
+[class*="flex"] {
+  display: flex;
 }
-ul{margin: 0}
+[class*="flex"] > * {
+  flex: 1 0;
+}
+/* Direction */
+[class*="row"] {
+  flex-direction: row;
+}
+[class*="row-reverse"] {
+  flex-direction: row-reverse;
+}
+[class*="column"] {
+  flex-direction: column;
+}
+[class*="column-reverse"] {
+  flex-direction: column-reverse;
+}
+/* Wrap */
+[class*="nowrap"] {
+  flex-wrap: nowrap;
+}
+[class*="wrap"] {
+  flex-wrap: wrap;
+}
+[class*="wrap-reverse"] {
+  flex-wrap: wrap-reverse;
+}
+/* Justify content */
+[class*="flex-start"] {
+  justify-content: flex-start;
+}
+[class*="flex-end"] {
+  justify-content: flex-end;
+}
+[class*="center"] {
+  justify-content: center;
+}
+[class*="space-between"] {
+  justify-content: space-between;
+}
+[class*="space-around"] {
+  justify-content: space-around;
+}
+/* Align items */
+[class*="align-flex-start"] {
+  align-items: flex-start;
+}
+[class*="align-self-flex-start"] {
+  align-self: flex-start;
+}
+[class*="align-flex-end"] {
+  align-items: flex-end;
+}
+[class*="align-self-flex-end"] {
+  align-self: flex-end;
+}
+[class*="align-center"] {
+  align-items: center;
+}
+[class*="align-self-center"] {
+  align-self: center;
+}
+[class*="align-baseline"] {
+  align-items: baseline;
+}
+[class*="align-self-baseline"] {
+  align-self: baseline;
+}
+[class*="align-stretch"] {
+  align-items: stretch;
+}
+[class*="align-self-stretch"] {
+  align-self: stretch;
+}
+/* Flex type */
+[class*="inherit"] > * {
+  flex: inherit;
+}
+[class*="self-inherit"] {
+  flex: inherit;
+}
+[class*="initial"] > * {
+  flex: initial;
+}
+[class*="self-initial"] {
+  flex: initial;
+}
+[class*="auto"] > * {
+  flex: auto;
+}
+[class*="self-auto"] {
+  flex: auto;
+}
 
-.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{background: transparent}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+  margin: 0;
+}
+ul {
+  margin: 0;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  background: transparent;
+}
 code {
-    display: inline-block;
-    overflow: hidden;
-    background-color: var(--default-bright);
-    padding: 0 0.5em;
-    border-radius: 0.25rem;
+  display: inline-block;
+  overflow: hidden;
+  background-color: var(--default-bright);
+  padding: 0 0.5em;
+  border-radius: 0.25rem;
 }
 pre {
-    background-color: var(--default-bright);
-    margin: 1rem 0;
-    border-radius: 0.5rem;
+  background-color: var(--default-bright);
+  margin: 1rem 0;
+  border-radius: 0.5rem;
 }
-pre>code{
-    display: block;
-}
-
-pre, code, pre>*, code>*{
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-    line-height: inherit;
+pre > code {
+  display: block;
 }
 
-small{
-    font-size: 0.9em;
+pre,
+code,
+pre > *,
+code > * {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  line-height: inherit;
 }
 
-samp{
-    border: 1px solid var(--default-light);
-    padding: 1rem;
-    display: block;
-    border-radius: 0.5rem;;
-    margin: 1rem;
+small {
+  font-size: 0.9em;
 }
 
-
-details:not([data-trigger]){
-    background-color: var(--default-bright);
+samp {
+  border: 1px solid var(--default-light);
+  padding: 1rem;
+  display: block;
+  border-radius: 0.5rem;
+  margin: 1rem;
 }
 
-details:not([data-trigger]) summary{
-    position: relative;
-    padding: .75em .75em;
-    line-height: 1;
-    display: block;
-    font-weight: 500;
-    white-space: nowrap;
-    outline: none;
-    text-decoration: none;
-    text-align: left;
-    background-color: var(--white);
-    transition: var(--animate-all-fastest);
-    overflow: hidden;
-    cursor: pointer;
-    color: var(--primary);
+details:not([data-trigger]) {
+  background-color: var(--default-bright);
 }
 
+details:not([data-trigger]) summary {
+  position: relative;
+  padding: 0.75em 0.75em;
+  line-height: 1;
+  display: block;
+  font-weight: 500;
+  white-space: nowrap;
+  outline: none;
+  text-decoration: none;
+  text-align: left;
+  background-color: var(--white);
+  transition: var(--animate-all-fastest);
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--primary);
+}

@@ -1,21 +1,17 @@
-import Layout from './layout';
+import Section from "../../components/Section";
+import Layout from "./layout";
 
 export default () => (
-  <Layout>
-    <div data-card="full-width">
-      <header>
-        <h1>Lifecycle methods</h1>
-      </header>
-      <section>
-        With Valyrian.js, components don't have lifecycle, just Virtual dom nodes have them.
-        You can apply the next lyfecycle methods to the Virtual dom:
-        <ul>
-          <li>oncreate</li>
-          <li>onbeforeupdate</li>
-          <li>onupdate</li>
-          <li>onremove</li>
-        </ul>
-        {code(`
+  <Layout title="Lifecycle methods">
+    <Section title="Lifecycle methods">
+      With Valyrian.js, components don't have lifecycle, just Virtual dom nodes have them. You can apply the next lyfecycle methods to the Virtual dom:
+      <ul>
+        <li>oncreate</li>
+        <li>onbeforeupdate</li>
+        <li>onupdate</li>
+        <li>onremove</li>
+      </ul>
+      {code(`
 // Stateless component
 let Component = (props, world) => <div {...props}>Hello {world}</div>;
 
@@ -48,7 +44,6 @@ v(Component, lifecycle, 'World');
 // Or 
 <Component {...lifecycle}> World </Component>
                 `)}
-      </section>
-    </div>
+    </Section>
   </Layout>
 );

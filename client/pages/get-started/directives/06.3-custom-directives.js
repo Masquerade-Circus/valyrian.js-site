@@ -1,111 +1,120 @@
-import dayjs from 'dayjs';
-import Layout from '../layout';
+import dayjs from "dayjs";
+import Layout from "../layout";
+import Section from "../../../components/Section";
 
-let formatDate = (value) => dayjs(value).format('MMMM D, YYYY');
+let formatDate = (value) => dayjs(value).format("MMMM D, YYYY");
 
 let CustomDirectives = {
-
   simple: () => {
-    v.directive('test', (value) => console.log(`Hello ${value}`));
-    return <div v-test="world"></div>;
+    v.directive("test", (value) => console.log(`Hello ${value}`));
+    return <div v-test="world" />;
   },
 
   vnode: () => {
-    v.directive('test2', (value, vnode, oldVnode) => console.log(vnode, oldVnode));
+    v.directive("test2", (value, vnode, oldVnode) => console.log(vnode, oldVnode));
     return <div v-test2>Hello</div>;
   },
 
   vnodeUpdated: false,
 
   identifyFirstRender: () => {
-    v.directive('identify-first-render', (value, vnode, oldVnode) => {
+    v.directive("identify-first-render", (value, vnode, oldVnode) => {
       if (!oldVnode) {
-        vnode.children = 'First render, vnode created';
+        vnode.children = "First render, vnode created";
       } else {
-        vnode.children = 'Second render, vnode updated';
+        vnode.children = "Second render, vnode updated";
       }
     });
 
-    return <div v-identify-first-render></div>;
+    return <div v-identify-first-render />;
   },
 
   modifyChildren() {
-    v.directive('modify-children', (value, vnode) => vnode.children = 'Hello world');
+    v.directive("modify-children", (value, vnode) => (vnode.children = "Hello world"));
 
     return <div v-modify-children>Hello John Doe</div>;
   },
 
   modifyProperties() {
     // This will update the property by place, the change is not guaranteed.
-    v.directive('modify-property', (value, vnode) => vnode.props.class = 'bg-success');
+    v.directive("modify-property", (value, vnode) => (vnode.props.class = "bg-success"));
 
     // This will update of the property by method, place is not important and the change is guaranteed.
-    v.directive('modify-property-by-method', (value, vnode) => {
-      vnode.props.class = 'bg-success';
-      v.updateProperty('class', vnode);
+    v.directive("modify-property-by-method", (value, vnode) => {
+      vnode.props.class = "bg-success";
+      v.updateProperty("class", vnode);
     });
 
     return [
-      <button class="bg-primary" v-modify-property>class property before directive</button>,
+      <button class="bg-primary" v-modify-property>
+        class property before directive
+      </button>,
       <br />,
-      <button v-modify-property class="bg-primary">class property after directive</button>,
+      <button v-modify-property class="bg-primary">
+        class property after directive
+      </button>,
       <br />,
-      <button class="bg-primary" v-modify-property-by-method>class before directive and updated by method</button>
+      <button class="bg-primary" v-modify-property-by-method>
+        class before directive and updated by method
+      </button>
     ];
   },
 
   addingEvents() {
-    return <button class="border-primary" onclick={(event, dom) => dom.innerText = `Event ${event.type} fired`}>Simple button</button>;
+    return (
+      <button class="border-primary" onclick={(event, dom) => (dom.innerText = `Event ${event.type} fired`)}>
+        Simple button
+      </button>
+    );
   },
 
   addingEventsToVnode() {
-    v.directive('click', (value, vnode) => {
-      vnode.props.onclick = (event, dom) => dom.innerText = `Event ${event.type} fired`;
-      v.updateProperty('onclick', vnode);
+    v.directive("click", (value, vnode) => {
+      vnode.props.onclick = (event, dom) => (dom.innerText = `Event ${event.type} fired`);
+      v.updateProperty("onclick", vnode);
     });
-    return <button class="border-primary" v-click>Simple button</button>;
+    return (
+      <button class="border-primary" v-click>
+        Simple button
+      </button>
+    );
   },
 
   addingEventsToOtherDom() {
-    v.directive('listen-to-scroll', (value, vnode) => {
+    v.directive("listen-to-scroll", (value, vnode) => {
       if (!v.isNode) {
-      // Get the article element
-        let article = document.getElementsByTagName('article')[0];
+        // Get the article element
+        let article = document.getElementsByTagName("article")[0];
 
         // Set the listener to a var
-        let listener = (e) => vnode.dom.innerText = article.scrollTop;
+        let listener = (e) => (vnode.dom.innerText = article.scrollTop);
 
         // Attach the listener
-        article.addEventListener('scroll', listener);
+        article.addEventListener("scroll", listener);
 
         // If we re-render the ui remove the listener before attach it again
-        v.onCleanup(() => article.removeEventListener('scroll', listener));
+        v.onCleanup(() => article.removeEventListener("scroll", listener));
       }
     });
 
-    return <span v-listen-to-scroll></span>;
+    return <span v-listen-to-scroll />;
   },
 
   flagImplementation() {
-    v.directive('date-inline', (date, vnode) => vnode.children = formatDate(date));
-    v.directive('date', (value, vnode) => vnode.children = formatDate(vnode.children[0]));
+    v.directive("date-inline", (date, vnode) => (vnode.children = formatDate(date)));
+    v.directive("date", (value, vnode) => (vnode.children = formatDate(vnode.children[0])));
 
-    return [
-      <div v-date-inline="08-16-2018"></div>,
-      <div v-date>08-16-2018</div>
-    ];
+    return [<div v-date-inline="08-16-2018" />, <div v-date>08-16-2018</div>];
   },
 
   complexExample() {
-    v.directive('switch', (value, vnode) => {
+    v.directive("switch", (value, vnode) => {
       for (let i = 0, l = vnode.children.length; i < l; i++) {
         let [test, handler] = vnode.children[i];
-        let result = typeof test === 'function' ?
-          test(value) :
-          value === test;
+        let result = typeof test === "function" ? test(value) : value === test;
 
         if (result) {
-          vnode.children = typeof handler === 'function' ? handler(value) : handler;
+          vnode.children = typeof handler === "function" ? handler(value) : handler;
           return;
         }
       }
@@ -113,32 +122,25 @@ let CustomDirectives = {
       vnode.children = value;
     });
 
-    return ({name}) => <div v-switch={name}>
-      {['John', <span>Hello John</span>]}
-      {[(val) => val === 'John Doe', <span>Hello John Doe</span>]}
-      {['Jane', (val) => <span>Hello {val} Doe</span>]}
-    </div>;
+    return ({ name }) => (
+      <div v-switch={name}>
+        {["John", <span>Hello John</span>]}
+        {[(val) => val === "John Doe", <span>Hello John Doe</span>]}
+        {["Jane", (val) => <span>Hello {val} Doe</span>]}
+      </div>
+    );
   },
 
   view() {
     let ComplexExample = CustomDirectives.complexExample();
-    return <Layout>
-      <div data-card="full-width">
-        <header>
-          <h1>Custom directives</h1>
-        </header>
-        <section>
-        Valyrian.js directives can be created calling the method <code>v.directive</code> passing the name of the directive as first parameter and a custom method as the second parameter.
-        </section>
-      </div>
+    return (
+      <Layout title="Custom directives">
+        <Section title="Custom directives">
+          Valyrian.js directives can be created calling the method <code>v.directive</code> passing the name of the directive as first parameter and a custom method as the second parameter.
+        </Section>
 
-
-      <div data-card="full-width">
-        <header>
-          <h1>Simple directive</h1>
-        </header>
-        <section>
-        The custom method will get the directive value as first parameter.
+        <Section title="Simple directive">
+          The custom method will get the directive value as first parameter.
           {code(`
 v.directive('test', (value) => console.log(\`Hello \${value}\`));
 v.mount('body', () => <div v-test="world"></div>);
@@ -149,16 +151,10 @@ v.mount('body', () => <div v-test="world"></div>);
 $ Hello world
           `)}
           </samp>
-        </section>
-      </div>
+        </Section>
 
-
-      <div data-card="full-width">
-        <header>
-          <h1>Getting vnodes</h1>
-        </header>
-        <section>
-        The custom method will get the new/updated vnode as the second parameter and the old vnode as the third.
+        <Section title="Getting vnodes">
+          The custom method will get the new/updated vnode as the second parameter and the old vnode as the third.
           {code(`
 v.directive('test2', (v, vnode, oldVnode) => console.log(vnode, oldVnode));
 v.mount('body', () => <div v-test2>Hello</div>)
@@ -194,20 +190,19 @@ $ {
           `)}
             </div>
 
-            <button class="border-primary" onclick={() => {
-              CustomDirectives.vnodeUpdated = true;
-            }}>Update</button>
+            <button
+              class="border-primary"
+              onclick={() => {
+                CustomDirectives.vnodeUpdated = true;
+              }}
+            >
+              Update
+            </button>
           </samp>
-        </section>
-      </div>
+        </Section>
 
-      <div data-card="full-width">
-        <header>
-          <h1>Identify first render or updated node</h1>
-        </header>
-        <section>
-        We can identify if it is the first render by testing the presence of the third parameter (the old vnode). If there is no old vnode, then we can be confident that this is the first render.
-
+        <Section title="Identify created or updated node">
+          We can identify if it is the first render by testing the presence of the third parameter (the old vnode). If there is no old vnode, then we can be confident that this is the first render.
           {code(`
 v.directive('identify-first-render', (v, vnode, oldVnode) => {
   if (!oldVnode) {
@@ -221,34 +216,24 @@ v.mount('body', () => <div v-identify-first-render></div>);
           `)}
           <samp>
             {CustomDirectives.identifyFirstRender()}
-            <button class="border-primary" onclick={() => {}}>Update</button>
+            <button class="border-primary" onclick={() => {}}>
+              Update
+            </button>
           </samp>
-        </section>
-      </div>
+        </Section>
 
-      <div data-card="full-width">
-        <header>
-          <h1>Modifying children of vnodes</h1>
-        </header>
-        <section>
-        As in the previous sample, you can update or overwrite the children of this node modifying the <code>children</code> attribute of the vnode.
+        <Section title="Modifying children of vnodes">
+          As in the previous sample, you can update or overwrite the children of this node modifying the <code>children</code> attribute of the vnode.
           {code(`
 v.directive('modify-children', (v, vnode) => vnode.children = 'Hello world');
 
 v.mount('body', () => <div v-modify-children>Hello John Doe</div>);
           `)}
-          <samp>
-            {CustomDirectives.modifyChildren()}
-          </samp>
-        </section>
-      </div>
+          <samp>{CustomDirectives.modifyChildren()}</samp>
+        </Section>
 
-      <div data-card="full-width">
-        <header>
-          <h1>Modifying properties of vnodes</h1>
-        </header>
-        <section>
-        Modify properties is not guaranteed because the properties are processed by place.
+        <Section title="Modify properties of vnodes">
+          Modify properties is not guaranteed because the properties are processed by place.
           <br />
           If the directive needs to update previous properties you need to update the property using the v.updateProperty method.
           {code(`
@@ -269,28 +254,23 @@ v.mount('body', () => [
   <button class="bg-primary" v-modify-property-by-method>class before directive and updated by method</button>
 ]);
           `)}
-          <samp>
-            {CustomDirectives.modifyProperties()}
-          </samp>
-        </section>
-      </div>
+          <samp>{CustomDirectives.modifyProperties()}</samp>
+        </Section>
 
-      <div data-card="full-width">
-        <header>
-          <h1>Adding events</h1>
-        </header>
-        <section>
+        <Section title="Adding events">
           <h4>Adding events to dom</h4>
           To add an event to the dom you can simply add the <code>{`on$\{eventName\}`}</code> attribute to the vnode you want to use it.
           {code(`
 v.mount('body', () => <button class="border-primary" onclick={(event, dom) => dom.innerText = \`Event $\{event.type} fired\`}>Simple button</button>);
           `)}
           <samp>{CustomDirectives.addingEvents()}</samp>
-          <small class="bg-warning-lightest">Each fired event will trigger an update of the app. To prevent this behavior you need to cancel the event with <code>event.preventDefault()</code>.</small>
+          <small class="bg-warning-lightest">
+            Each fired event will trigger an update of the app. To prevent this behavior you need to cancel the event with <code>event.preventDefault()</code>.
+          </small>
           <hr />
           <h4>Adding events to vnode</h4>
-          Although you can add a listener directly to the dom property of the vnode, it is a best practice to use the <code>v.updateProperty</code> method to let Valyrian.js
-          handle the add and update of the element without worry to remove the listener if the dom updates or is removed form the dom.
+          Although you can add a listener directly to the dom property of the vnode, it is a best practice to use the <code>v.updateProperty</code> method to let Valyrian.js handle the add and update of the element
+          without worry to remove the listener if the dom updates or is removed form the dom.
           {code(`
 v.directive('click', (value, vnode) => {
   vnode.props.onclick = (event, dom) => dom.innerText = \`Event $\{event.type\} fired\`;
@@ -302,8 +282,10 @@ v.mount('body', () => <button v-click>Simple button</button>);
           <hr />
           <h4>Adding events to other dom and leaning events (v.onCleanup)</h4>
           If you want to add a listener to another dom element from within a directive you will need to remove the handler on each render using the <code>v.onCleanup</code> method.
-          <br />This method runs the passed callback at the  begining of each render.
-          <br />Also you need to validate first if we are in the browser scope because in nodejs some dom methods don't exists and events can not be fired.
+          <br />
+          This method runs the passed callback at the begining of each render.
+          <br />
+          Also you need to validate first if we are in the browser scope because in nodejs some dom methods don't exists and events can not be fired.
           {code(`
 v.directive('listen-to-scroll', (value, vnode) => {
   // We check if we are not in the browser
@@ -325,14 +307,9 @@ v.directive('listen-to-scroll', (value, vnode) => {
 v.mount('body', () => <span v-listen-to-scroll></span>);
           `)}
           <samp>{CustomDirectives.addingEventsToOtherDom()}</samp>
-        </section>
-      </div>
+        </Section>
 
-      <div data-card="full-width">
-        <header>
-          <h1>Flag implementation example</h1>
-        </header>
-        <section>
+        <Section title="Flag implementation example">
           We don't have flags as vue or ember but for this we can use a directive as flag.
           {code(`
 import dayjs from 'dayjs';
@@ -348,17 +325,12 @@ v.mount('body', () => [
 ]);
 `)}
           <samp>{CustomDirectives.flagImplementation()}</samp>
-        </section>
-      </div>
+        </Section>
 
-      <div data-card="full-width">
-        <header>
-          <h1>Complex example v-switch</h1>
-        </header>
-        <section>
+        <Section title="Complex example v-switch">
           This complex example shows the capabilities of Valyrian directives.
           <br />
-          It works as a switch statement and needs a set of arrays as children of the form <code>{'[testCase|method, vnodes|method]'}</code>
+          It works as a switch statement and needs a set of arrays as children of the form <code>{"[testCase|method, vnodes|method]"}</code>
           {code(`
 v.directive('switch', (value, vnode) => {
   for (let i = 0, l = vnode.children.length; i < l; i++) {
@@ -389,14 +361,13 @@ v.mount('body', () => [
 ]);
           `)}
           <samp>
-            {<ComplexExample name='John' />}
-            {<ComplexExample name='John Doe' />}
-            {<ComplexExample name='Jane' />}
+            {<ComplexExample name="John" />}
+            {<ComplexExample name="John Doe" />}
+            {<ComplexExample name="Jane" />}
           </samp>
-        </section>
-      </div>
-    </Layout>;
-
+        </Section>
+      </Layout>
+    );
   }
 };
 
