@@ -1,13 +1,34 @@
 import Links from "./links";
-import {
-  version,
-  description
-} from "../../node_modules/valyrian.js/package.json";
+import { version, description } from "../../node_modules/valyrian.js/package.json";
 
 let Main = {
   title: "Valyrian.js",
-  version: version,
-  description: description,
+  version,
+  description,
+  styles() {
+    if (process.env.NODE_ENV === "development") {
+      return v.inline.css().map(({ raw, map }) => (
+        <style>
+          {raw}
+          {map}
+        </style>
+      ));
+    } else {
+      return <style>{v.inline.uncss()}</style>;
+    }
+  },
+  js() {
+    if (process.env.NODE_ENV === "development") {
+      return v.inline.js().map(({ raw, map }) => (
+        <script>
+          {raw}
+          {map}
+        </script>
+      ));
+    } else {
+      return v.inline.js().map(({ raw }) => <script>{raw}</script>);
+    }
+  },
   view(props, ...children) {
     let view = [
       "<!DOCTYPE html>",
@@ -18,12 +39,12 @@ let Main = {
           <meta name="description" content={Main.description} />
           <meta http-equiv="x-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
-          <style>{v.inline.css()}</style>
+          {Main.styles()}
           <Links />
         </head>
         <body>
           {children}
-          <script>{v.inline.js()}</script>
+          {Main.js()}
         </body>
       </html>
     ];

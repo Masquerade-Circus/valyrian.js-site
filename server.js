@@ -1,2 +1,2 @@
-require('source-map-support').install();
-require('./server/index.js');
+require("valyrian.js/register");
+require("./server/index.js");

@@ -2,8 +2,9 @@ let micro = require("micro");
 let Router = require("micro-ex-router");
 let cors = require("cors");
 let compression = require("compression");
-let App = require("../public/index.min");
-let nodePlugin = require("valyrian.js/plugins/node");
+let { default: App } = require("../client/index");
+// let nodePlugin = require("valyrian.js/plugins/node");
+let nodePlugin = require("../../valyrian.js/plugins/node");
 
 process.on("unhandledRejection", console.log);
 process.on("uncaughtException", console.log);
@@ -20,17 +21,16 @@ const DefaultHeaders = {
 async function start() {
   let port = process.env.PORT || 3001;
 
+  // Configure nodejs plugin
   v.usePlugin(nodePlugin);
   v.request.nodeUrl = `http://localhost:${port}`;
 
   // Inline styles and javascript
-  let renderedHtml = v.routes.get().map((path) => v.routes.go(App.Pages.Main, path));
-  await v.inline("./public/index.min.js", "./node_modules/prismjs/themes/prism.css", "./public/dragonglass.css", "./public/main.css");
+  let renderedHtml = v.routes.get().map((path) => v.routes.go(path));
+  await v.inline("./client/index.js", "./node_modules/prismjs/themes/prism.css", "./public/dragonglass.css", "./public/main.css");
 
-  await v.inline.uncss(renderedHtml, {
-    ignore: [/open/gi, /--elevation/gi, ":root"],
-    minify: true
-  });
+  // Remove unnecessary css
+  await v.inline.uncss(renderedHtml);
 
   // Create a new router
   let router = Router();

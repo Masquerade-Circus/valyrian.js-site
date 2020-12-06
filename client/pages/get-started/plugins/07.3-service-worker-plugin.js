@@ -1,5 +1,5 @@
-import Section from "../../components/Section";
-import Layout from "./layout";
+import Section from "../../../components/Section";
+import Layout from "../layout";
 
 export default () => (
   <Layout title="Service worker plugin">
