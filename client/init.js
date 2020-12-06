@@ -1,10 +1,10 @@
-import "valyrian.js";
-import Router from "valyrian.js/plugins/router";
-import Request from "valyrian.js/plugins/request";
-import Sw from "valyrian.js/plugins/sw";
-import VModel from "valyrian.js/plugins/v-model";
-import Prism from "prismjs";
-import "prismjs/components/prism-jsx";
+require("valyrian.js");
+let Router = require("valyrian.js/plugins/router");
+let Request = require("valyrian.js/plugins/request");
+let Sw = require("valyrian.js/plugins/sw");
+let VModel = require("valyrian.js/plugins/v-model");
+let Prism = require("prismjs");
+require("prismjs/components/prism-jsx");
 
 (v.isNode ? global : window).code = (str, language = "jsx") => {
   return (

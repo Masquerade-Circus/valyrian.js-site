@@ -1,7 +1,7 @@
-import Section from "../../../components/Section";
-import Layout from "../layout";
+let Section = require("../../../components/Section");
+let Layout = require("../layout");
 
-export default () => (
+module.exports = () => (
   <Layout title="Plugins">
     <Section title="Plugins">Valyrian.js comes with a very simple but very powerfull plugin system. You can extend its core functionality or change it completely by the use of plugins.</Section>
     <Section title="Using plugins">
@@ -17,7 +17,7 @@ const Plugin = (v, options) => {
     };
 };
 
-export default Plugin;
+module.exports = Plugin;
             `)}
     </Section>
   </Layout>

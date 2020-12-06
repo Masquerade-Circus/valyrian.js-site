@@ -1,4 +1,4 @@
-import { version } from "valyrian.js/package.json";
+let { version } = require("valyrian.js/package.json");
 
 let Page = {
   links: [
@@ -42,4 +42,4 @@ let Page = {
   }
 };
 
-export default Page;
+module.exports = Page;

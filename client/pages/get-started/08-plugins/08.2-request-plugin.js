@@ -1,15 +1,15 @@
-import Section from "../../../components/Section";
-import Layout from "../layout";
+let Section = require("../../../components/Section");
+let Layout = require("../layout");
 
-export default () => (
+module.exports = () => (
   <Layout title="Request plugin">
     <Section title="Request plugin" />
     <Section title="Install">
       This plugin is available with the main valyrian.js package, so, you only need to add it with the
       <code>v.usePlugin()</code> method.
       {code(`
-import 'valyrian.js';
-import Request from 'valyrian.js/plugins/request';
+require('valyrian.js');
+let Request = require('valyrian.js/plugins/request');
 
 v.usePlugin(Request);
             `)}
@@ -88,7 +88,7 @@ v.request.get('/hello') // http://localhost:3000/hello
 v.request.get('http://example.com/api/hello') // http://localhost:3000/hello
             `)}
       <small class="bg-warning-lightest">
-        You will need to use the <a v-route="/get-started/node-plugin">Node plugin</a> for SSR to work.
+        You will need to use the <a v-route="/get-started/plugins/node-plugin">Node plugin</a> for SSR to work.
       </small>
     </Section>
   </Layout>

@@ -1,6 +1,6 @@
-import dayjs from "dayjs";
-import Layout from "../layout";
-import Section from "../../../components/Section";
+let dayjs = require("dayjs");
+let Layout = require("../layout");
+let Section = require("../../../components/Section");
 
 let formatDate = (value) => dayjs(value).format("MMMM D, YYYY");
 
@@ -312,7 +312,7 @@ v.mount('body', () => <span v-listen-to-scroll></span>);
         <Section title="Flag implementation example">
           We don't have flags as vue or ember but for this we can use a directive as flag.
           {code(`
-import dayjs from 'dayjs';
+let dayjs = require('dayjs');
 
 let formatDate = (value) => dayjs(value).format('MMMM D, YYYY');
 
@@ -371,4 +371,4 @@ v.mount('body', () => [
   }
 };
 
-export default CustomDirectives;
+module.exports = CustomDirectives;

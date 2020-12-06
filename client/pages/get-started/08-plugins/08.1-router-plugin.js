@@ -1,15 +1,15 @@
-import Section from "../../../components/Section";
-import Layout from "../layout";
+let Section = require("../../../components/Section");
+let Layout = require("../layout");
 
-export default () => (
+module.exports = () => (
   <Layout title="Router plugin">
     <Section title="Router plugin" />
     <Section title="Install">
       This plugin is available with the main valyrian.js package, so, you only need to add it with the
       <code>v.usePlugin()</code> method.
       {code(`
-import 'valyrian.js';
-import Router from 'valyrian.js/plugins/router';
+require('valyrian.js');
+let Router = require('valyrian.js/plugins/router');
 
 v.usePlugin(Router);
             `)}
@@ -32,8 +32,8 @@ v.usePlugin(Router);
 
     <Section title="Use">
       {code(`
-import 'valyrian.js';
-import Router from 'valyrian.js/plugins/router.js';
+require('valyrian.js');
+let Router = require('valyrian.js/plugins/router.js');
 
 v.usePlugin(Router);
 
@@ -85,8 +85,8 @@ v.routes('body', router);
 
     <Section title="Subrouters">
       {code(`
-import 'valyrian.js';
-import Router from 'valyrian.js/plugins/router.js';
+require('valyrian.js');
+let Router = require('valyrian.js/plugins/router.js');
 
 v.usePlugin(Router);
 
@@ -125,8 +125,8 @@ v.routes('body', router);
       Assume this client side app
       {code(`
 // client.js
-import 'valyrian.js';
-import Router from 'valyrian.js/plugins/router.js';
+require('valyrian.js');
+let Router = require('valyrian.js/plugins/router.js');
 v.usePlugin(Router);
 
 let Component = () => <div>Hello world</div>;
@@ -135,11 +135,21 @@ router
     .get('/', () => Component)
     .get('/hello/:world/whats/:up', () => Component);
         `)}
+      Create entry point for server side requiring Valyrian.js register hook
+      {code(`
+// index.js - server side entry point
+
+// Register Valyrian.js in fly transpilation
+require('valyrian.js/register');
+
+// Require server file
+require('./server.js');
+    `)}
       Implement SSR with Express
       {code(`
 // server.js with Express
-let express = require('express');
-let app = express();
+// Init express
+let app = require('express')();
 
 // Require valyrian and main app
 require('./client.js');
@@ -147,8 +157,13 @@ let nodePlugin = require('valyrian.js/plugins/node');
 v.usePlugin(nodePlugin);
 
 // Create the container component 
-// We don't have jsx in here so we do it the hyperscript way
-let HtmlComponent = (null, ...children) => ['<!DOCTYPE html>', v('html', null, v('body', null, children))];
+// We can have jsx in here thanks to the Valyrian.js register hook
+let HtmlComponent = (null, ...children) => [
+  '<!DOCTYPE html>',
+  <html lang="en">
+    <body>{children}</body>
+  </html>
+];
 
 // Add Valyrian routes
 v.routes.get().forEach((path) =>
@@ -161,6 +176,8 @@ app.listen(3000);
       Implement SSR with Micro
       {code(`
 // server.js with Micro
+
+// Require micro and micro-ex-router
 let micro = require('micro');
 let Router = require('micro-ex-router');
 
@@ -173,19 +190,23 @@ let nodePlugin = require('valyrian.js/plugins/node');
 v.usePlugin(nodePlugin);
 
 // Create the container component 
-// We don't have jsx in here so we do it the hyperscript way
-let HtmlComponent = (null, ...children) => ['<!DOCTYPE html>', v('html', null, v('body', null, children))];
+// We can have jsx in here thanks to the Valyrian.js register hook
+let HtmlComponent = (null, ...children) => [
+  '<!DOCTYPE html>',
+  <html lang="en">
+    <body>{children}</body>
+  </html>
+];
 
 // Add Valyrian routes
-v.routes.get().forEach((path) =>
-  router.get(path, (req) => v.routes.go(HtmlComponent, req.url))
-);
+v.routes.get().forEach((path) => router.get(path, (req) => v.routes.go(HtmlComponent, req.url)));
 
 // Init the server
 micro(router).listen(3000);
         `)}
       <small class="bg-warning-lightest">
-        You will need to use the <a v-route="/get-started/node-plugin">Node plugin</a> for SSR to work.
+        You will need to use the <a v-route="/get-started/plugins/node-plugin">Node plugin</a> for SSR to work, and <a v-route="/get-started/server-side-jsx">Valyrian.js register hook</a> for server side jsx and client
+        code use.
       </small>
     </Section>
   </Layout>

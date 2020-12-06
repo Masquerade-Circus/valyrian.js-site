@@ -1,4 +1,4 @@
-export default ({ title }, ...children) => {
+module.exports = ({ title }, ...children) => {
   return (
     <div data-card="full-width" class="el-1">
       <header>

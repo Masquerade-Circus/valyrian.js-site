@@ -1,4 +1,4 @@
-import Layout from "../layout";
+let Layout = require("../layout");
 
 let Page = {
   Routes: [
@@ -15,6 +15,7 @@ let Page = {
         { title: "Custom directives", route: "/get-started/directives/custom-directives" }
       ]
     },
+    { title: "Server side jsx", route: "/get-started/server-side-jsx" },
     {
       title: "Plugins",
       children: [
@@ -22,13 +23,12 @@ let Page = {
         { title: "Router plugin", route: "/get-started/plugins/router-plugin" },
         { title: "Request plugin", route: "/get-started/plugins/request-plugin" },
         { title: "Service worker plugin", route: "/get-started/plugins/service-worker-plugin" },
-        { title: "NodeJs plugin", route: "/get-started/plugins/nodejs-plugin" },
+        { title: "Node plugin", route: "/get-started/plugins/nodejs-plugin" },
         { title: "Store plugin", route: "/get-started/plugins/store-plugin" },
         { title: "Hooks plugin", route: "/get-started/plugins/hooks-plugin" },
         { title: "Signals plugin", route: "/get-started/plugins/signals-plugin" }
       ]
-    },
-    { title: "Server side jsx", route: "/get-started/server-side-jsx" }
+    }
   ],
   getRoute({ title, route, children }) {
     if (Array.isArray(children)) {
@@ -71,4 +71,4 @@ let Page = {
   }
 };
 
-export default Page;
+module.exports = Page;

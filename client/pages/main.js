@@ -1,5 +1,5 @@
-import Links from "./links";
-import { version, description } from "../../node_modules/valyrian.js/package.json";
+let Links = require("./links");
+let { version, description } = require("../../node_modules/valyrian.js/package.json");
 
 let Main = {
   title: "Valyrian.js",
@@ -53,4 +53,4 @@ let Main = {
   }
 };
 
-export default Main;
+module.exports = Main;

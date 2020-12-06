@@ -1,7 +1,7 @@
-import Section from "../../components/Section";
-import Layout from "./layout";
+let Section = require("../../components/Section");
+let Layout = require("./layout");
 
-export default () => (
+module.exports = () => (
   <Layout title="Installation">
     <Section title="Installation" />
     <Section title="Standalone in the browser">{code('<script src="https://cdn.jsdelivr.net/npm/valyrian.js"></script>')}</Section>

@@ -1,7 +1,7 @@
-import Section from "../../components/Section";
-import Layout from "./layout";
+let Section = require("../../components/Section");
+let Layout = require("./layout");
 
-export default () => (
+module.exports = () => (
   <Layout title="Lifecycle methods">
     <Section title="Lifecycle methods">
       With Valyrian.js, components don't have lifecycle, just Virtual dom nodes have them. You can apply the next lyfecycle methods to the Virtual dom:

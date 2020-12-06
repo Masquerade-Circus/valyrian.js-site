@@ -1,11 +1,11 @@
-import Main from "./main";
-import Layout from "./layout";
-import Home from "./home";
-import GetStarted from "./get-started";
-import Api from "./api";
-import Examples from "./examples";
+let Main = require("./main");
+let Layout = require("./layout");
+let Home = require("./home");
+let GetStarted = require("./get-started");
+let Api = require("./api");
+let Examples = require("./examples");
 
-export default {
+module.exports = {
   Main,
   Layout,
   Home,

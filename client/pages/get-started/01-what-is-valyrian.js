@@ -1,7 +1,7 @@
-import Layout from "./layout";
-import Section from "../../components/Section";
+let Layout = require("./layout");
+let Section = require("../../components/Section");
 
-export default () => (
+module.exports = () => (
   <Layout title="What is Valyrian.js">
     <Section title="What is Valyrian.js">
       Valyrian.js is a progressive javascript framework whose sole purpose is to be lighter (2kb Base / 3.5kb Base+Router+XHR) but powerful enough to build production ready Progressive Web App's.

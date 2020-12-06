@@ -1,7 +1,7 @@
-import Section from "../../components/Section";
-import Layout from "./layout";
+let Section = require("../../components/Section");
+let Layout = require("./layout");
 
-export default () => (
+module.exports = () => (
   <Layout>
     <Section title="Hyperscript/JSX" />
     <Section title="Hyperscript">

@@ -1,5 +1,5 @@
-import Section from "../../../components/Section";
-import Layout from "../layout";
+let Section = require("../../../components/Section");
+let Layout = require("../layout");
 
 let obj = {
   input: "",
@@ -227,8 +227,8 @@ let VModel = () => (
     <Section title="Install">
       This directive is added by a plugin, and this plugin is available with the main valyrian.js package, so, you only need to add it with the <code>v.usePlugin()</code> method.
       {code(`
-import 'valyrian.js';
-import VModel from 'valyrian.js/plugins/v-model.js';
+require('valyrian.js');
+let VModel = require('valyrian.js/plugins/v-model.js');
 
 v.usePlugin(VModel);
             `)}
@@ -237,4 +237,4 @@ v.usePlugin(VModel);
   </Layout>
 );
 
-export default VModel;
+module.exports = VModel;

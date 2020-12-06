@@ -2,9 +2,8 @@ let micro = require("micro");
 let Router = require("micro-ex-router");
 let cors = require("cors");
 let compression = require("compression");
-let { default: App } = require("../client/index");
-// let nodePlugin = require("valyrian.js/plugins/node");
-let nodePlugin = require("../../valyrian.js/plugins/node");
+let NodePlugin = require("valyrian.js/plugins/node");
+let App = require("../client/index");
 
 process.on("unhandledRejection", console.log);
 process.on("uncaughtException", console.log);
@@ -21,8 +20,8 @@ const DefaultHeaders = {
 async function start() {
   let port = process.env.PORT || 3001;
 
-  // Configure nodejs plugin
-  v.usePlugin(nodePlugin);
+  // Configure request nodeUrl
+  v.usePlugin(NodePlugin);
   v.request.nodeUrl = `http://localhost:${port}`;
 
   // Inline styles and javascript
@@ -51,6 +50,10 @@ async function start() {
       })
     )
   );
+
+  let Content = v.mount("div", () => "Hello world");
+
+  router.get("/test", () => Content);
 
   // If we get to this point throw a 404 not found error
   router.use((req, res) => {

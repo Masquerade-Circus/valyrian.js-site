@@ -1,5 +1,5 @@
-import Section from "../../../components/Section";
-import Layout from "../layout";
+let Section = require("../../../components/Section");
+let Layout = require("../layout");
 
 let BuiltInDirectives = () => (
   <Layout title="Built in directives">
@@ -104,4 +104,4 @@ v.update(); // -> <div>Hello world</div>
   </Layout>
 );
 
-export default BuiltInDirectives;
+module.exports = BuiltInDirectives;

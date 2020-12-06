@@ -1,7 +1,7 @@
-import Layout from "./layout";
-import Logo from "../components/Logo";
+let Layout = require("./layout");
+let Logo = require("../components/Logo");
 
-export default () => (
+module.exports = () => (
   <Layout>
     <article>
       <div id="home-middle">

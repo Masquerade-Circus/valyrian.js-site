@@ -1,15 +1,15 @@
-import Section from "../../../components/Section";
-import Layout from "../layout";
+let Section = require("../../../components/Section");
+let Layout = require("../layout");
 
-export default () => (
+module.exports = () => (
   <Layout title="Service worker plugin">
     <Section title="Service worker plugin" />
     <Section title="Install">
       This plugin is available with the main valyrian.js package, so, you only need to add it with the
       <code>v.usePlugin()</code> method.
       {code(`
-import 'valyrian.js';
-import Sw from 'valyrian.js/plugins/sw.js';
+require('valyrian.js');
+let Sw = require('valyrian.js/plugins/sw.js');
 
 v.usePlugin(Sw);
             `)}

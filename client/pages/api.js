@@ -1,6 +1,6 @@
-import Layout from './layout';
+let Layout = require("./layout");
 
-export default () => (
+module.exports = () => (
   <Layout>
     <article>
       <h1>Api</h1>
