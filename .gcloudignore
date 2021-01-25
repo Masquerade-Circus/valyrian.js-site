@@ -6,10 +6,8 @@ node_modules/
 #!include:.gitignore
 .gitignore
 app.yaml
+.git
 
-client
-logo
 build.js
 LICENSE
-rollup.js
 svgo.js

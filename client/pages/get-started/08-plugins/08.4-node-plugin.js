@@ -16,7 +16,7 @@ v.usePlugin(NodePlugin);
       files for a PWA.
     </Section>
     <Section title="Inline css and js">
-      Para mejorar el performance de la PWA Valyrian.js provee de un método para transpilar, minimizar y embeber el código del cliente en las respuestas html del servidor.
+      To improve PWA's performance, Valyrian.js provides a method to transpile, minimize and embed the client code in the server's HTML response.
       <br />
       <br />
       Assume this client side app
@@ -143,28 +143,43 @@ init();
   file // The name of the entry file
 }        
       `)}
-      This will allow us to embed the client side source code directly in the html response without the need of a transpilation/build step and reduce the need of a js file request for the client.
+      This will allow us to embed the client side source code directly in the html response without the need of a transpilation/build step and reduce the need of a js file request for the client. Also, this method will
+      receive an options object as a second parameter that will be passed to rollup.
+      <br />
+      <br />
+      This object must have the next shape:
+      {code(`
+{
+  inputOptions: {
+    // Some custom options
+  },
+  outputOptions: {
+    // Some output options
+  }
+}
+      `)}
       <h2>
         <code>v.inline.css</code> method
       </h2>
       The <code>v.inline.css</code> inline method not only will get the contents of the file, but also will minify the css by passing it to a default instance of the{" "}
-      <a href="https://www.npmjs.com/package/csso" target="_blank">
-        csso
+      <a href="https://github.com/jakubpawlowicz/clean-css" target="_blank">
+        CleanCSS
       </a>{" "}
-      css optimizer. The result will be an object like:
+      optimizer. The result will be an object like:
       {code(`
 {
   raw, // Minimized styles
-  map, // Generated source map for this css
+  map: null,
   file // The name of the entry file
 }   
       `)}
+      Similar to the <code>v.inline.js</code>, this method will receive an options object as a second parameter that will be passed directly to CleanCSS.
       <h2>
         <code>v.inline.uncss</code> method
       </h2>
-      Although the styles getted by the <code>v.inline.css</code> method will be minified, the result will be the whole styles, no matter if the styles are used or not by the site. This minimized styles, along with its
-      source map, allow us to develop faster and get the references at development step, but for production we will want to include only the styles that will be used by the site. For this task we have the{" "}
-      <code>v.inline.uncss</code> method which works different from the other convenience methods.
+      Although the styles getted by the <code>v.inline.css</code> method will be minified, the result will be the whole styles, no matter if the styles are used or not by the site. This minimized styles allow us to
+      develop faster, but for production we recommend to include only the styles that will be used by the site. For this task we have the <code>v.inline.uncss</code> method which works different from the other
+      convenience methods.
       <br />
       <br />
       You will need to use the <code>v.inline.css</code> method first for this to work. After minimize some css files with the <code>v.inline.css</code> method you can pass a set of html strings to the{" "}
@@ -187,6 +202,11 @@ let html = "<body><span>Hello world</span></body>";
 await v.inline.css('./style.css');
 let cleanCss = await v.inline.uncss([html]); // -> "span{display:block}"
       `)}
+      This method will use{" "}
+      <a href="https://purgecss.com/" target="_blank">
+        PurgeCSS
+      </a>{" "}
+      to do this cleaning of styles, and can also receive an options object as a second parameter that will be passed directly to the <code>PurgeCSS.purge</code> method.
     </Section>
     <Section title="Service worker generation" />
     <Section title="Icons and manifest.json generation" />

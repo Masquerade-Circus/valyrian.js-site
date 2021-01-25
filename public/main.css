@@ -4,7 +4,7 @@
 
 body > footer,
 body > header {
-  color: white;
+  color: var(--white);
 }
 
 #home-middle {
@@ -22,12 +22,7 @@ body > header {
   max-width: 560px;
   display: block;
   margin: 0 auto;
-  fill: #6a59b8;
-}
-
-[data-card~="full-width"] {
-  margin-right: 0;
-  margin-left: 0;
+  fill: var(--primary);
 }
 
 body > footer > nav {
@@ -131,18 +126,6 @@ body > footer > nav {
   flex: auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: normal;
-  margin: 0;
-}
-ul {
-  margin: 0;
-}
-
 .token.operator,
 .token.entity,
 .token.url,
@@ -150,59 +133,7 @@ ul {
 .style .token.string {
   background: transparent;
 }
-code {
-  display: inline-block;
-  overflow: hidden;
-  background-color: var(--default-bright);
-  padding: 0 0.5em;
-  border-radius: 0.25rem;
-}
-pre {
-  background-color: var(--default-bright);
-  margin: 1rem 0;
-  border-radius: 0.5rem;
-}
-pre > code {
-  display: block;
-}
-
-pre,
-code,
-pre > *,
-code > * {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  line-height: inherit;
-}
 
 small {
-  font-size: 0.9em;
-}
-
-samp {
-  border: 1px solid var(--default-light);
-  padding: 1rem;
-  display: block;
-  border-radius: 0.5rem;
-  margin: 1rem;
-}
-
-details:not([data-trigger]) {
-  background-color: var(--default-bright);
-}
-
-details:not([data-trigger]) summary {
-  position: relative;
-  padding: 0.75em 0.75em;
-  line-height: 1;
-  display: block;
-  font-weight: 500;
-  white-space: nowrap;
-  outline: none;
-  text-decoration: none;
-  text-align: left;
-  background-color: var(--white);
-  transition: var(--animate-all-fastest);
-  overflow: hidden;
-  cursor: pointer;
-  color: var(--primary);
+  padding: 0;
 }

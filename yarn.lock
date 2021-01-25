@@ -1442,6 +1442,13 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+clean-css@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
+  integrity sha512-VcMWDN54ZN/DS+g58HYL5/n4Zrqe8vHJpGA8KdgUXFU4fuP/aHNw8eld9SyEIyabIMJX/0RaY/fplOo5hYLSFA==
+  dependencies:
+    source-map "~0.6.0"
+
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
@@ -1657,9 +1664,9 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js@^3.4.1:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.8.0.tgz#0fc2d4941cadf80538b030648bb64d230b4da0ce"
-  integrity sha512-W2VYNB0nwQQE7tKS7HzXd7r2y/y2SVJl4ga6oH/dnaLFzM0o2lB2P3zCkWj5Wc/zyMYjtgd5Hmhk0ObkQFZOIA==
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.8.1.tgz#f51523668ac8a294d1285c3b9db44025fda66d47"
+  integrity sha512-9Id2xHY1W7m8hCl8NkhQn5CufmF/WuR30BTRewvCXc1aZd3kMECwNZ69ndLbekKfakw9Rf2Xyc+QR6E7Gg+obg==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -1779,7 +1786,7 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-csso@^4.0.2, csso@^4.2.0:
+csso@^4.0.2:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/csso/-/csso-4.2.0.tgz#ea3a561346e8dc9f546d6febedd50187cf389529"
   integrity sha512-wvlcdIbf6pwKEk7vHj8/Bkc0B4ylXZruLvOgs9doS5eOsOpuodOV2zJChSpkp+pRpYQLQMeF04nr3Z68Sta9jA==
@@ -1803,10 +1810,10 @@ dateformat@^3.0.3:
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
-dayjs@^1.9.6:
-  version "1.9.6"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.6.tgz#6f0c77d76ac1ff63720dd1197e5cb87b67943d70"
-  integrity sha512-HngNLtPEBWRo8EFVmHFmSXAjtCX8rGNqeXQI0Gh7wCTSqwaKgPIDqu9m07wABVopNwzvOeCb+2711vQhDlcIXw==
+dayjs@^1.9.7:
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.7.tgz#4b260bb17dceed2d5f29038dfee03c65a6786fc0"
+  integrity sha512-IC877KBdMhBrCfBfJXHQlo0G8keZ0Opy7YIIq5QKtUbCuHMzim8S4PyiVK4YmihI3iOF9lhfUBW4AQWHTR5WHA==
 
 debounce@^1.0.0:
   version "1.2.0"
@@ -1985,6 +1992,11 @@ domutils@^1.7.0:
   dependencies:
     dom-serializer "0"
     domelementtype "1"
+
+dragonglass@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dragonglass/-/dragonglass-1.0.2.tgz#869280f5304da04c38cb3bcbb449ba3a7f613a5e"
+  integrity sha512-jigN1Mgh/2TtUHRFJTRyBGKZHPEPbdKugZeuDN5TGFKA7iyO6xB7tPe3zJQcRvlsf3iprwmyKs7XmOLOzGiCMA==
 
 duplexer@0.1.1:
   version "0.1.1"
@@ -5017,12 +5029,12 @@ source-map@^0.5.6:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
+source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-source-map@^0.7.3, source-map@~0.7.2:
+source-map@~0.7.2:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
@@ -5675,16 +5687,16 @@ validate-npm-package-name@^3.0.0:
   dependencies:
     builtins "^1.0.3"
 
-valyrian.js@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/valyrian.js/-/valyrian.js-5.0.6.tgz#99678bfdab5a251091a863713057de7d3d169f09"
-  integrity sha512-Ab1YLgvWixNJ7NZacUZ8ybTqZJ3+17xYlNNHWhNiEmCcJIr3H48rTkjT4PFFmRN+6DOv0Ky6b5/l1SLB4z1CUA==
+valyrian.js@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/valyrian.js/-/valyrian.js-5.0.8.tgz#9d0f5d6df81e0b104f3e2a3e6486b4b67467ea3d"
+  integrity sha512-vAWz+8y1XumyfDTz2bcs7Ogh4944TIVN61mWUASOPhsBGlUv2IOQezHIODUVSEKwFsRlMf7M9f924mlCwNicaA==
   dependencies:
     "@rollup/plugin-buble" "^0.21.3"
     "@rollup/plugin-commonjs" "^17.0.0"
     "@rollup/plugin-json" "^4.1.0"
     "@rollup/plugin-node-resolve" "^11.0.0"
-    csso "^4.2.0"
+    clean-css "^4.2.3"
     favicons "^6.2.0"
     form-data "^3.0.0"
     node-fetch "^2.6.1"
@@ -5697,7 +5709,6 @@ valyrian.js@^5.0.6:
     rollup-plugin-sourcemaps "^0.6.3"
     rollup-plugin-string "^3.0.0"
     rollup-plugin-terser "^7.0.2"
-    source-map "^0.7.3"
     sucrase "^3.16.0"
 
 vary@^1, vary@~1.1.2:

@@ -2,7 +2,7 @@ let micro = require("micro");
 let Router = require("micro-ex-router");
 let cors = require("cors");
 let compression = require("compression");
-let NodePlugin = require("valyrian.js/plugins/node");
+let NodePlugin = require("../../valyrian.js/plugins/node");
 let App = require("../client/index");
 
 process.on("unhandledRejection", console.log);
@@ -26,7 +26,7 @@ async function start() {
 
   // Inline styles and javascript
   let renderedHtml = v.routes.get().map((path) => v.routes.go(path));
-  await v.inline("./client/index.js", "./node_modules/prismjs/themes/prism.css", "./public/dragonglass.css", "./public/main.css");
+  await v.inline("./client/index.js", "./node_modules/prismjs/themes/prism.css", "./node_modules/dragonglass/dist/dragonglass.min.css", "./public/main.css");
 
   // Remove unnecessary css
   await v.inline.uncss(renderedHtml);
@@ -50,10 +50,6 @@ async function start() {
       })
     )
   );
-
-  let Content = v.mount("div", () => "Hello world");
-
-  router.get("/test", () => Content);
 
   // If we get to this point throw a 404 not found error
   router.use((req, res) => {
