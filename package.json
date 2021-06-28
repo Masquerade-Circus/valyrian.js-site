@@ -26,7 +26,7 @@
     "dragonglass": "^1.0.2",
     "micro": "^9.3.4",
     "micro-ex-router": "^1.8.0",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.24.0",
     "valyrian.js": "^5.0.8"
   },
   "engines": {
