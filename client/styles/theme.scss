@@ -1,0 +1,9 @@
+@use "pkg:dragonglass/theme" as dragonglass;
+
+:root {
+  @include dragonglass.tokens(#6a59b8);
+
+  --site-font-mono:
+    ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --site-target-min: 2.75rem;
+}

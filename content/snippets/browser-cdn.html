@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Valyrian.js App</title>
+  </head>
+  <body>
+    <script type="module">
+      import "https://unpkg.com/valyrian.js";
+
+      const { mount } = Valyrian;
+
+      function App() {
+        return "Hello from Valyrian.js";
+      }
+
+      mount("body", App);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2593 @@
+[
+  {
+    "group": "guides",
+    "id": "guides",
+    "pathname": "/guides",
+    "title": "Guías de Valyrian.js",
+    "headings": [
+      "Guías de Valyrian.js"
+    ],
+    "text": "Guías de Valyrian.js Aprende cada capacidad pública mediante su propósito, sus APIs principales y su lugar dentro del flujo de una aplicación. Cada guía conduce a un ejemplo funcional cuando existe y continúa en la referencia de API relacionada."
+  },
+  {
+    "group": "recipes",
+    "id": "recipes",
+    "pathname": "/recipes",
+    "title": "Recetas de Valyrian.js",
+    "headings": [
+      "Recetas de Valyrian.js"
+    ],
+    "text": "Recetas de Valyrian.js Completa una tarea concreta con un conjunto pequeño de APIs públicas. Cada receta enlaza la guía de la capacidad relacionada de Valyrian.js."
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "Antes de comenzar",
+      "Resultado esperado",
+      "Hitos",
+      "Comprobación final"
+    ],
+    "id": "learn.first-application",
+    "pathname": "/learn/first-application",
+    "summary": "Crea una vista, móntala, comprende su ciclo de vida y controla sus actualizaciones.",
+    "text": "Crea una vista, móntala, comprende su ciclo de vida y controla sus actualizaciones. Antes de comenzar Elige el destino del DOM donde `mount` conectará la vista raíz. Resultado esperado Una vista montada con limpieza de ciclo de vida y control explícito de actualizaciones. Hitos Comprobación final Puedes montar la vista raíz, vincular y limpiar trabajo del ciclo de vida, controlar una actualización y desmontar la aplicación sin dejar trabajo activo.",
+    "title": "Tu primera aplicación"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Antes de comenzar",
+      "Resultado esperado",
+      "Hitos",
+      "Comprobación final"
+    ],
+    "id": "learn.routing-data",
+    "pathname": "/learn/routing-data",
+    "summary": "Conecta pantallas, intercepta la navegación, carga datos remotos y representa trabajo asíncrono.",
+    "text": "Conecta pantallas, intercepta la navegación, carga datos remotos y representa trabajo asíncrono. Antes de comenzar Completa el recorrido de la primera aplicación e identifica la fuente de datos remotos que usa cada pantalla. Resultado esperado Una aplicación con enrutamiento que carga datos remotos y muestra estados pendiente, exitoso y fallido. Hitos Comprobación final Puedes navegar entre pantallas, interceptar un cambio de ruta, cargar datos y representar cada estado asíncrono sin ocultar fallos.",
+    "title": "Enrutamiento y datos"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "Antes de comenzar",
+      "Resultado esperado",
+      "Hitos",
+      "Comprobación final"
+    ],
+    "id": "learn.state-forms",
+    "pathname": "/learn/state-forms",
+    "summary": "Elige una primitiva de estado, organiza valores compartidos, ejecuta efectos y valida entradas del usuario.",
+    "text": "Elige una primitiva de estado, organiza valores compartidos, ejecuta efectos y valida entradas del usuario. Antes de comenzar Parte de una vista montada y elige la primitiva de estado de Valyrian.js que usará el flujo. Resultado esperado Un flujo de formulario con una primitiva de estado adecuada, efectos explícitos y validación por esquema. Hitos Comprobación final Puedes elegir el límite del estado, actualizar valores compartidos, limpiar efectos y rechazar entradas inválidas antes del envío.",
+    "title": "Estado y formularios"
+  },
+  {
+    "group": "network-offline-pwa",
+    "headings": [
+      "Antes de comenzar",
+      "Resultado esperado",
+      "Hitos",
+      "Comprobación final"
+    ],
+    "id": "learn.network-offline-pwa",
+    "pathname": "/learn/network-offline-pwa",
+    "summary": "Observa la conectividad, conserva trabajo en una cola y usa las APIs de service worker que expone Valyrian.js.",
+    "text": "Observa la conectividad, conserva trabajo en una cola y usa las APIs de service worker que expone Valyrian.js. Antes de comenzar Parte de una aplicación de navegador y elige una operación asíncrona que pueda conservarse para un intento posterior. Resultado esperado Una aplicación que muestra la conectividad, conserva trabajo adecuado y administra el ciclo de vida de su service worker. Hitos Comprobación final Puedes responder a un cambio de red, distinguir el trabajo en cola del fallido y registrar o actualizar el service worker mediante su ciclo de vida público.",
+    "title": "Red, offline y PWA"
+  },
+  {
+    "group": "ssr-server",
+    "headings": [
+      "Antes de comenzar",
+      "Resultado esperado",
+      "Hitos",
+      "Comprobación final"
+    ],
+    "id": "learn.server-rendering-execution",
+    "pathname": "/learn/server-rendering-execution",
+    "summary": "Renderiza vistas en el servidor, aísla ámbitos de ejecución y usa almacenamiento y transformaciones del servidor.",
+    "text": "Renderiza vistas en el servidor, aísla ámbitos de ejecución y usa almacenamiento y transformaciones del servidor. Antes de comenzar Usa un contexto aislado de Valyrian.js para los valores que pertenecen a una solicitud del servidor. Resultado esperado Una vista renderizada en el servidor con aislamiento por solicitud, storage del servidor y transformaciones explícitas de salida. Hitos Comprobación final Puedes renderizar una vista en el servidor, mantener aislado el estado de cada solicitud, usar storage del servidor y transformar la salida sin filtrar trabajo entre solicitudes.",
+    "title": "Renderizado y ejecución en servidor"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.first-application",
+    "pathname": "/guides/first-application",
+    "summary": "Crea una vista con `v`, conéctala con `mount` y elimina la raíz montada con `unmount`.",
+    "text": "Crea una vista con `v`, conéctala con `mount` y elimina la raíz montada con `unmount`. `v` crea el vnode que se renderizará. `mount` conecta la vista raíz. `unmount` la elimina y ejecuta la limpieza registrada. APIs principales Límite `mount` requiere un destino válido. Usa `unmount` para eliminar la raíz montada. Referencia relacionada",
+    "title": "Crea tu primera aplicación con Valyrian.js"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.views-directives-trusted-content",
+    "pathname": "/guides/views-directives-trusted-content",
+    "summary": "Construye una vista con vnodes, atributos y valores hijos. Usa las utilidades públicas de vnode cuando necesites inspeccionar o transformar estructuras compatibles. Usa directivas cuando el comportamiento pertenezca al ciclo de vida del nodo renderizado.",
+    "text": "Construye una vista con vnodes, atributos y valores hijos. Usa las utilidades públicas de vnode cuando necesites inspeccionar o transformar estructuras compatibles. Usa directivas cuando el comportamiento pertenezca al ciclo de vida del nodo renderizado. trust marca contenido para renderizado confiable. Úsalo únicamente con contenido cuyo origen y transformación controles. Esta API no valida ni sanitiza entradas que provienen de fuentes no confiables. APIs principales Referencia relacionada",
+    "title": "Compón vistas y controla el contenido renderizado"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.lifecycle",
+    "pathname": "/guides/lifecycle",
+    "summary": "Usa los hooks de ciclo de vida para vincular trabajo con los momentos en que una vista entra, cambia dentro o sale del árbol renderizado.",
+    "text": "Usa los hooks de ciclo de vida para vincular trabajo con los momentos en que una vista entra, cambia dentro o sale del árbol renderizado. Mantén juntas la preparación y la limpieza para que una vista desmontada no conserve suscripciones ni recursos externos. APIs principales Límite Cada hook debe coordinar la fase que documenta su contrato. No dependas de un orden no documentado entre vistas independientes. Referencia relacionada",
+    "title": "Ejecuta trabajo durante el ciclo de vida de una vista"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.update-control",
+    "pathname": "/guides/update-control",
+    "summary": "Usa update para solicitar una actualización al runtime, debouncedUpdate para agrupar solicitudes repetidas y preventUpdate cuando una interacción deba terminar sin la actualización que normalmente ocurriría después.",
+    "text": "Usa update para solicitar una actualización al runtime, debouncedUpdate para agrupar solicitudes repetidas y preventUpdate cuando una interacción deba terminar sin la actualización que normalmente ocurriría después. Usa `update` de inmediato, `debouncedUpdate` para solicitudes repetidas y `preventUpdate` para suprimir la actualización de la interacción actual. APIs principales Referencia relacionada",
+    "title": "Controla cuándo se actualizan las vistas"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.application-routing",
+    "pathname": "/guides/application-routing",
+    "summary": "Crea un Router con las rutas que expone tu aplicación y conéctalo mediante mountRouter.",
+    "text": "Crea un Router con las rutas que expone tu aplicación y conéctalo mediante mountRouter. El router resuelve la ubicación actual y selecciona el flujo de la ruta correspondiente. APIs principales Error Maneja las navegaciones inválidas o sin coincidencia mediante el flujo público de errores del router. No supongas que todas las ubicaciones se resolverán correctamente. Referencia relacionada",
+    "title": "Conecta vistas con el router de Valyrian.js"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.navigation-hooks-redirects-errors",
+    "pathname": "/guides/navigation-hooks-redirects-errors",
+    "summary": "Usa beforeRoute para el trabajo previo a completar una ruta, afterRoute para el trabajo de una transición completada y redirect cuando la navegación deba continuar en otra ubicación compatible.",
+    "text": "Usa beforeRoute para el trabajo previo a completar una ruta, afterRoute para el trabajo de una transición completada y redirect cuando la navegación deba continuar en otra ubicación compatible. `beforeRoute` y `afterRoute` se ejecutan durante las transiciones. `RouterError` representa fallas del router. APIs principales Error Una transición fallida entra en el flujo de `RouterError`. Referencia relacionada",
+    "title": "Controla la transición entre rutas"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.requests",
+    "pathname": "/guides/requests",
+    "summary": "Usa request para iniciar una operación HTTP mediante la API pública del cliente.",
+    "text": "Usa request para iniciar una operación HTTP mediante la API pública del cliente. `request` devuelve el resultado exitoso o entra en su flujo de rechazo. APIs principales Error Las solicitudes rechazadas entran en el flujo de error de la llamada. Referencia relacionada",
+    "title": "Envía solicitudes con Valyrian.js"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.suspense-boundaries",
+    "pathname": "/guides/suspense-boundaries",
+    "summary": "Usa Suspense alrededor de contenido asíncrono compatible cuando la vista necesite un límite pendiente definido.",
+    "text": "Usa Suspense alrededor de contenido asíncrono compatible cuando la vista necesite un límite pendiente definido. `Suspense` renderiza su fallback mientras se resuelve el contenido asíncrono. APIs principales Error Un límite pendiente y una operación fallida representan estados distintos. Maneja las fallas mediante el camino de error de la operación subyacente. Referencia relacionada",
+    "title": "Representa contenido que todavía se está resolviendo"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.asynchronous-tasks",
+    "pathname": "/guides/asynchronous-tasks",
+    "summary": "Usa Task cuando una interacción pueda iniciar trabajo nuevo antes de que termine el anterior y solo el resultado actual compatible deba controlar el flujo.",
+    "text": "Usa Task cuando una interacción pueda iniciar trabajo nuevo antes de que termine el anterior y solo el resultado actual compatible deba controlar el flujo. `Task` expone el estado de la ejecución asíncrona actual. APIs principales Límite Task coordina el trabajo conforme a su contrato. No vuelve reversibles los efectos externos. Referencia relacionada",
+    "title": "Coordina trabajo asíncrono reemplazable"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.queries-mutations",
+    "pathname": "/guides/queries-mutations",
+    "summary": "Usa QueryClient como coordinador compartido de los flujos compatibles de consulta y mutación.",
+    "text": "Usa QueryClient como coordinador compartido de los flujos compatibles de consulta y mutación. Lee los estados de QueryHandle y MutationHandle desde la capa que representa progreso, resultados y acciones de recuperación. APIs principales Error Mantén distinguibles las fallas de consultas y mutaciones. Una mutación fallida puede requerir una recuperación distinta de una lectura fallida. Referencia relacionada",
+    "title": "Coordina datos del servidor con QueryClient"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.reactive-values",
+    "pathname": "/guides/reactive-values",
+    "summary": "`createPulse` devuelve operaciones para leer, actualizar y desechar un valor reactivo.",
+    "text": "`createPulse` devuelve operaciones para leer, actualizar y desechar un valor reactivo. Léelo y modifícalo mediante las operaciones que expone el valor devuelto. APIs principales Límite Cada llamada a `createPulse` crea un valor reactivo independiente. Referencia relacionada",
+    "title": "Comparte un valor reactivo con createPulse"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.reactive-stores-effects",
+    "pathname": "/guides/reactive-stores-effects",
+    "summary": "Usa createPulseStore para el contrato de pulse store, createMutableStore para el modelo público de store mutable y createEffect para trabajo que reacciona a cambios compatibles.",
+    "text": "Usa createPulseStore para el contrato de pulse store, createMutableStore para el modelo público de store mutable y createEffect para trabajo que reacciona a cambios compatibles. `createPulseStore` y `createMutableStore` exponen modelos distintos. `createEffect` devuelve una función de limpieza. APIs principales Límite Los dos creadores de stores exponen contratos distintos. Consulta sus entradas de referencia antes de elegir solo por el nombre. Referencia relacionada",
+    "title": "Organiza estado reactivo y sus efectos"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.flux-state",
+    "pathname": "/guides/flux-state",
+    "summary": "Usa FluxStore cuando la aplicación se beneficie del modelo de acciones y transiciones que expone su contrato público.",
+    "text": "Usa FluxStore cuando la aplicación se beneficie del modelo de acciones y transiciones que expone su contrato público. Las mutaciones confirmadas actualizan el estado de `FluxStore` que renderiza la aplicación. APIs principales Referencia relacionada",
+    "title": "Organiza transiciones de estado con FluxStore"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.devtools-integration",
+    "pathname": "/guides/devtools-integration",
+    "summary": "Conecta la primitiva de estado que ya usa tu aplicación mediante el conector público correspondiente.",
+    "text": "Conecta la primitiva de estado que ya usa tu aplicación mediante el conector público correspondiente. Sigue el ciclo de vida de la conexión que documenta la API. APIs principales Error DevTools puede no estar disponible. La aplicación debe continuar sin una conexión activa de inspección. Referencia relacionada",
+    "title": "Inspecciona el estado de Valyrian.js con DevTools"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.forms-validation",
+    "pathname": "/guides/forms-validation",
+    "summary": "Usa FormStore para mantener juntos los valores, errores y estados de interacción compatibles. Usa formSchemaShield para el flujo de validación por esquema.",
+    "text": "Usa FormStore para mantener juntos los valores, errores y estados de interacción compatibles. Usa formSchemaShield para el flujo de validación por esquema. `FormStore` expone juntos los valores, errores de validación y estados de interacción y envío. APIs principales Error Separa las fallas de validación de las fallas de envío porque requieren respuestas distintas. Referencia relacionada",
+    "title": "Administra valores y validación de formularios"
+  },
+  {
+    "group": "network-offline-pwa",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.network-status",
+    "pathname": "/guides/network-status",
+    "summary": "Usa NetworkManager para observar el estado de red y los valores de NetworkEvent para actualizar el flujo de la aplicación.",
+    "text": "Usa NetworkManager para observar el estado de red y los valores de NetworkEvent para actualizar el flujo de la aplicación. La conectividad es una señal, no una prueba de que una operación remota tendrá éxito. APIs principales Límite Mantén los errores de solicitud y el estado de red como condiciones relacionadas pero distintas. Referencia relacionada",
+    "title": "Responde a los cambios de conectividad"
+  },
+  {
+    "group": "network-offline-pwa",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.offline-operations",
+    "pathname": "/guides/offline-operations",
+    "summary": "Usa OfflineQueue cuando una operación pueda esperar hasta que la aplicación tenga condiciones para intentarla de nuevo.",
+    "text": "Usa OfflineQueue cuando una operación pueda esperar hasta que la aplicación tenga condiciones para intentarla de nuevo. `OfflineQueue` expone operaciones en cola, reintentadas y fallidas. APIs principales Error Una operación encolada todavía puede fallar durante el reintento. Conserva un estado fallido recuperable en lugar de presentarla como completada. Referencia relacionada",
+    "title": "Conserva trabajo compatible en una cola offline"
+  },
+  {
+    "group": "network-offline-pwa",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.service-worker-pwa-lifecycle",
+    "pathname": "/guides/service-worker-pwa-lifecycle",
+    "summary": "Usa `registerSw` para registrar el service worker y `SwRuntimeManager` para leer los estados del registro.",
+    "text": "Usa `registerSw` para registrar el service worker y `SwRuntimeManager` para leer los estados del registro. `SwRuntimeManager` expone los estados de progreso, disponibilidad y falla del registro. APIs principales Referencia relacionada",
+    "title": "Conecta la aplicación con su service worker"
+  },
+  {
+    "group": "ssr-server",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.server-side-rendering",
+    "pathname": "/guides/server-side-rendering",
+    "summary": "Usa la API render del servidor para convertir una vista compatible en la salida que define su contrato público.",
+    "text": "Usa la API render del servidor para convertir una vista compatible en la salida que define su contrato público. La llamada a `render` recibe la vista y las entradas requeridas por su contrato público. APIs principales Referencia relacionada",
+    "title": "Renderiza vistas de Valyrian.js en el servidor"
+  },
+  {
+    "group": "ssr-server",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.server-storage",
+    "pathname": "/guides/server-storage",
+    "summary": "Usa ServerStorage para valores que pertenecen al flujo compatible de ejecución en el servidor.",
+    "text": "Usa ServerStorage para valores que pertenecen al flujo compatible de ejecución en el servidor. `ServerStorage` crea, lee y actualiza valores dentro de la ejecución activa del servidor. APIs principales Referencia relacionada",
+    "title": "Mantén los valores del servidor dentro de su ejecución"
+  },
+  {
+    "group": "ssr-server",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.isolated-contexts",
+    "pathname": "/guides/isolated-contexts",
+    "summary": "Usa las APIs públicas de contexto para crear un límite de ejecución alrededor del estado que no debe filtrarse hacia trabajo independiente.",
+    "text": "Usa las APIs públicas de contexto para crear un límite de ejecución alrededor del estado que no debe filtrarse hacia trabajo independiente. Ejecuta dentro de ese límite las operaciones relacionadas de renderizado y almacenamiento. APIs principales Límite Mantén las referencias creadas dentro de un ámbito durante la vigencia documentada para ese ámbito. Referencia relacionada",
+    "title": "Aísla la ejecución de Valyrian.js mediante ámbitos"
+  },
+  {
+    "group": "ssr-server",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.server-transformations-resources",
+    "pathname": "/guides/server-transformations-resources",
+    "summary": "Usa las transformaciones públicas del servidor para cambiar una salida compatible antes de entregarla.",
+    "text": "Usa las transformaciones públicas del servidor para cambiar una salida compatible antes de entregarla. Usa inline, los helpers de iconos y los recursos del service worker solo con los tipos documentados por sus contratos. APIs principales Error Las entradas incompatibles entran en el flujo público de error de la API de transformación. Referencia relacionada",
+    "title": "Transforma salidas y recursos compatibles del servidor"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.translation",
+    "pathname": "/guides/translation",
+    "summary": "Usa las utilidades públicas de traducción para resolver un mensaje en el idioma activo y renderízalo en la vista que lo controla.",
+    "text": "Usa las utilidades públicas de traducción para resolver un mensaje en el idioma activo y renderízalo en la vista que lo controla. Mantén estables los identificadores de mensajes entre los idiomas compatibles. APIs principales Error Cuando `t` no puede resolver una traducción, devuelve el fallback documentado. Referencia relacionada",
+    "title": "Traduce contenido de la aplicación"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Error",
+      "Referencia relacionada"
+    ],
+    "id": "guide.money",
+    "pathname": "/guides/money",
+    "summary": "Usa las utilidades públicas de dinero con los valores, monedas e idiomas que acepten sus contratos.",
+    "text": "Usa las utilidades públicas de dinero con los valores, monedas e idiomas que acepten sus contratos. Las utilidades de dinero conservan separadas la cantidad numérica y su representación localizada. APIs principales Error El formato devuelve una representación localizada y no cambia la cantidad `Money`. Referencia relacionada",
+    "title": "Representa dinero con las utilidades de Valyrian.js"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Referencia relacionada"
+    ],
+    "id": "guide.native-storage",
+    "pathname": "/guides/native-storage",
+    "summary": "Usa las utilidades de almacenamiento nativo para leer, escribir y eliminar valores mediante el contrato público de Valyrian.js.",
+    "text": "Usa las utilidades de almacenamiento nativo para leer, escribir y eliminar valores mediante el contrato público de Valyrian.js. APIs principales Referencia relacionada",
+    "title": "Persiste valores compatibles en almacenamiento nativo"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs principales",
+      "Límite",
+      "Referencia relacionada"
+    ],
+    "id": "guide.validation-object-paths",
+    "pathname": "/guides/validation-object-paths",
+    "summary": "Los validadores públicos informan si un valor satisface la regla configurada.",
+    "text": "Los validadores públicos informan si un valor satisface la regla configurada. Usa las utilidades de rutas de objetos para acceder a rutas anidadas sin duplicar la lógica de recorrido. APIs principales Límite Cada validador comprueba únicamente la regla que representa su API. Referencia relacionada",
+    "title": "Valida valores y accede a datos anidados"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.core-mount",
+    "pathname": "/recipes/core-mount",
+    "summary": "Conecta una vista raíz con `mount` y elimínala con `unmount`.",
+    "text": "Conecta una vista raíz con `mount` y elimínala con `unmount`. APIs utilizadas Punto de partida Define una vista raíz que renderice el contenido de la aplicación. Pasos Monta la vista en `body` y llama a `unmount` para eliminar la raíz montada. Resultado La raíz se renderiza, y `unmount` la elimina y ejecuta la limpieza registrada. Límites Llama a `unmount` después de `mount` para eliminar la raíz actual. Continuar",
+    "title": "Montar y desmontar una aplicación"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.core-lifecycle",
+    "pathname": "/recipes/core-lifecycle",
+    "summary": "Acompaña la preparación del ciclo de vida con su limpieza cuando se desmonte la vista renderizada.",
+    "text": "Acompaña la preparación del ciclo de vida con su limpieza cuando se desmonte la vista renderizada. APIs utilizadas Punto de partida Crea una vista que inicie trabajo externo al entrar en el árbol renderizado. Pasos Registra el temporizador con onCreate, devuelve su limpieza, observa la salida con onRemove y termina desmontando la vista. Resultado Al desmontar la vista, el temporizador se cancela y se ejecuta el callback de salida. Límites Cada recurso externo iniciado por un callback del ciclo de vida necesita una limpieza correspondiente. Continuar",
+    "title": "Limpiar trabajo cuando una vista sale"
+  },
+  {
+    "group": "views-lifecycle",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.core-update-control",
+    "pathname": "/recipes/core-update-control",
+    "summary": "Elige el camino público que corresponda con una actualización directa, repetida o impedida.",
+    "text": "Elige el camino público que corresponda con una actualización directa, repetida o impedida. APIs utilizadas Punto de partida Define un valor de búsqueda y ofrece actualizaciones inmediatas y diferidas. Pasos Impide la actualización del evento de entrada, solicita una actualización agrupada después de 150 milisegundos y conserva un botón para actualizar de inmediato. Resultado La escritura agrupa actualizaciones repetidas y el botón solicita la vista actual de inmediato. Límites `debouncedUpdate` programa la actualización solicitada más reciente después del retraso. Continuar",
+    "title": "Agrupar actualizaciones repetidas"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.router-basic",
+    "pathname": "/recipes/router-basic",
+    "summary": "Conecta la resolución de rutas con la raíz de la aplicación.",
+    "text": "Conecta la resolución de rutas con la raíz de la aplicación. APIs utilizadas Punto de partida Crea un router con una ruta de inicio, una ruta con parámetro y un manejador para 404. Pasos Registra cada ruta, lee el identificador del usuario desde sus parámetros y monta el router en body. Resultado El router renderiza el encabezado correspondiente o la respuesta de página no encontrada. Límites Mantén explícitas las rutas y el comportamiento alternativo en la definición del router. Continuar",
+    "title": "Montar una aplicación con enrutamiento"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.request-client",
+    "pathname": "/recipes/request-client",
+    "summary": "Representa los estados pendiente, exitoso y fallido de una solicitud.",
+    "text": "Representa los estados pendiente, exitoso y fallido de una solicitud. APIs utilizadas Punto de partida Crea un cliente de solicitudes para la ruta base de la API y representa los estados pendiente, exitoso y fallido. Pasos Monta la vista de estado, solicita el perfil, actualiza el resultado en try o catch y refresca la vista en finally. Resultado La página pasa de la carga al perfil serializado o a un mensaje de falla recuperable. Límites Una solicitud rechazada entra en `catch` antes de que la vista se actualice en `finally`. Continuar",
+    "title": "Cargar datos desde una vista"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.suspense-boundary",
+    "pathname": "/recipes/suspense-boundary",
+    "summary": "Da a un contenido asíncrono compatible un estado pendiente definido.",
+    "text": "Da a un contenido asíncrono compatible un estado pendiente definido. APIs utilizadas Punto de partida Envuelve el contenido del perfil en un límite pendiente con una alternativa explícita. Pasos Asigna a Suspense una clave estable, proporciona la vista de carga y monta la pantalla que controla el límite. Resultado La pantalla cuenta con un estado de carga definido mientras se resuelve el contenido compatible. Límites Maneja las fallas de la operación por separado de la alternativa pendiente. Continuar",
+    "title": "Mostrar un límite de contenido pendiente"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.task-latest",
+    "pathname": "/recipes/task-latest",
+    "summary": "Evita que un resultado anterior compatible sustituya el resultado de la tarea actual.",
+    "text": "Evita que un resultado anterior compatible sustituya el resultado de la tarea actual. APIs utilizadas Punto de partida Crea una tarea de búsqueda cuya ejecución más reciente sustituya el trabajo anterior. Pasos Pasa la señal de la tarea a fetch, inicia dos búsquedas y espera el resultado más nuevo antes de montarlo. Resultado El resultado renderizado pertenece a la búsqueda más reciente y no a la solicitud sustituida. Límites La cancelación coordina el resultado de la tarea, pero no revierte efectos externos. Continuar",
+    "title": "Conservar la tarea asíncrona más reciente"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.query-client",
+    "pathname": "/recipes/query-client",
+    "summary": "Lee el estado público de las operaciones de datos desde sus handles.",
+    "text": "Lee el estado público de las operaciones de datos desde sus handles. APIs utilizadas Punto de partida Crea una consulta para una lista de pendientes y una mutación que agregue un elemento. Pasos Carga la lista, ejecuta la mutación, invalida la consulta después del éxito y renderiza los estados de ambas operaciones. Resultado La mutación invalida la consulta y la vista informa por separado el estado de la consulta y el de la mutación. Límites Distingue las fallas de lectura de las fallas de cambio porque requieren recuperaciones distintas. Continuar",
+    "title": "Coordinar una consulta y una mutación"
+  },
+  {
+    "group": "network-offline-pwa",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.network-status",
+    "pathname": "/recipes/network-status",
+    "summary": "Actualiza el flujo de la aplicación a partir de los eventos públicos de red.",
+    "text": "Actualiza el flujo de la aplicación a partir de los eventos públicos de red. APIs utilizadas Punto de partida Lee el estado inicial de conectividad y observa los cambios posteriores de la red. Pasos Suscríbete al crear la vista, actualiza el estado renderizado con cada cambio y destruye el administrador durante la limpieza. Resultado La vista alterna entre Online y Offline conforme llegan los eventos públicos de red. Límites La conectividad no garantiza que una operación remota tendrá éxito. Continuar",
+    "title": "Reaccionar a cambios de conectividad"
+  },
+  {
+    "group": "network-offline-pwa",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.offline-queue",
+    "pathname": "/recipes/offline-queue",
+    "summary": "Conserva una operación adecuada y maneja el resultado de un intento posterior.",
+    "text": "Conserva una operación adecuada y maneja el resultado de un intento posterior. APIs utilizadas Punto de partida Crea una cola de pedidos con un administrador de red y un manejador asíncrono de entrega. Pasos Suscríbete a los cambios, encola un pedido, renderiza los conteos pendientes y fallidos, y libera la suscripción, la cola y el administrador de red al desmontar la vista. Resultado La vista muestra cuántas operaciones siguen pendientes y cuántas fallaron mientras la cola intenta procesar el trabajo adecuado. Límites Una operación encolada todavía puede fallar. No la presentes como completada hasta que el procesamiento termine correctamente. Continuar",
+    "title": "Reintentar trabajo en cola al recuperar conexión"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.form-store",
+    "pathname": "/recipes/form-store",
+    "summary": "Mantén distinguibles los valores, la validación y los resultados del envío.",
+    "text": "Mantén distinguibles los valores, la validación y los resultados del envío. APIs utilizadas Punto de partida Crea un formulario de perfil con un nombre obligatorio y un manejador asíncrono de envío. Pasos Asigna el nombre, envía el formulario y renderiza el éxito únicamente cuando el store informe un envío correcto. Resultado El ejemplo envía Arya y muestra Profile saved o una indicación para revisar el formulario. Límites Mantén separadas las fallas de validación y las fallas de envío. Continuar",
+    "title": "Validar y enviar un formulario"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.pulse-value",
+    "pathname": "/recipes/pulse-value",
+    "summary": "`createPulse` devuelve una función de lectura y una de actualización para un valor reactivo.",
+    "text": "`createPulse` devuelve una función de lectura y una de actualización para un valor reactivo. APIs utilizadas Punto de partida Crea un contador reactivo con su función de lectura y su función de actualización. Pasos Incrementa el valor actual mediante la función de actualización y renderiza el valor de la función de lectura. Resultado La vista montada muestra Count: 1. Límites Esta llamada a `createPulse` expone una función de lectura y una de actualización. Continuar",
+    "title": "Compartir un valor reactivo"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.pulse-store",
+    "pathname": "/recipes/pulse-store",
+    "summary": "Mantén valores y efectos relacionados dentro del flujo compatible del store.",
+    "text": "Mantén valores y efectos relacionados dentro del flujo compatible del store. APIs utilizadas Punto de partida Crea un store reactivo con una operación de incremento con nombre. Pasos Cambia el conteo del estado mediante increment y renderiza el estado público resultante del store. Resultado Llamar a increment con 2 produce un conteo renderizado de 2. Límites El pulse store devuelve valores relacionados y operaciones con nombre en un solo store. Continuar",
+    "title": "Organizar estado reactivo estructurado"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.flux-store",
+    "pathname": "/recipes/flux-store",
+    "summary": "Controla cambios de estado mediante el contrato público de FluxStore.",
+    "text": "Controla cambios de estado mediante el contrato público de FluxStore. APIs utilizadas Punto de partida Crea un store de Flux con una mutación con nombre. Pasos Ejecuta commit(\"increment\", 2) y renderiza el estado resultante del store. Resultado La transición con nombre cambia el conteo renderizado de 0 a 2. Límites `FluxStore` aplica este cambio mediante la mutación `increment`. Continuar",
+    "title": "Modelar transiciones de estado con nombre"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.redux-devtools",
+    "pathname": "/recipes/redux-devtools",
+    "summary": "Conecta la primitiva correspondiente sin volver obligatoria la inspección durante la ejecución.",
+    "text": "Conecta la primitiva correspondiente sin volver obligatoria la inspección durante la ejecución. APIs utilizadas Punto de partida Crea un pulse y conéctalo con el flujo de inspección disponible en DevTools. Pasos Nombra Count a la conexión y renderiza la función de lectura que devuelve el pulse conectado. Resultado La aplicación renderiza el valor y puede exponer sus cambios a un entorno de inspección disponible. Límites Cuando DevTools no está disponible, el pulse conectado conserva su función de lectura. Continuar",
+    "title": "Inspeccionar estado con DevTools"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.translate-basic",
+    "pathname": "/recipes/translate-basic",
+    "summary": "Resuelve el contenido visible para el idioma activo.",
+    "text": "Resuelve el contenido visible para el idioma activo. APIs utilizadas Punto de partida Registra mensajes en inglés y español, y selecciona español como idioma activo. Pasos Configura ambos diccionarios, activa es y renderiza el saludo que resuelve t. Resultado La vista montada muestra Hola para el idioma activo. Límites Mantén estables las claves de los mensajes entre los idiomas compatibles. Continuar",
+    "title": "Traducir una vista"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.money-basic",
+    "pathname": "/recipes/money-basic",
+    "summary": "Produce una representación compatible con el idioma y conserva separada la cantidad original.",
+    "text": "Produce una representación compatible con el idioma y conserva separada la cantidad original. APIs utilizadas Punto de partida Interpreta un subtotal decimal, agrega cinco dólares en centavos y formatea el total en dólares estadounidenses. Pasos Interpreta 19.90 con dos decimales, agrega Money.fromCents(500) y formatea el resultado con en-US y USD. Resultado La vista renderiza la representación localizada de un total de 24.90 USD. Límites El formato representa un valor. No valida una transacción del negocio. Continuar",
+    "title": "Formatear un valor monetario"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Continuar"
+    ],
+    "id": "recipe.native-store",
+    "pathname": "/recipes/native-store",
+    "summary": "Lee, escribe y elimina un valor mediante el contrato público de almacenamiento nativo.",
+    "text": "Lee, escribe y elimina un valor mediante el contrato público de almacenamiento nativo. APIs utilizadas Punto de partida Crea un store nativo para las preferencias de la aplicación. Pasos Escribe el tema, léelo, elimina la clave almacenada, renderiza el valor capturado y limpia el store. Resultado La vista muestra el tema dark que se leyó antes de eliminar la clave y limpiar el store. Continuar",
+    "title": "Persistir un valor local"
+  },
+  {
+    "group": "state-forms",
+    "headings": [
+      "APIs utilizadas",
+      "Punto de partida",
+      "Pasos",
+      "Resultado",
+      "Límites",
+      "Continuar"
+    ],
+    "id": "recipe.utils-validation",
+    "pathname": "/recipes/utils-validation",
+    "summary": "Aplica un validador público y accede a datos anidados compatibles.",
+    "text": "Aplica un validador público y accede a datos anidados compatibles. APIs utilizadas Punto de partida Selecciona los campos permitidos, valida sus valores y lee un dato anidado del perfil. Pasos Elige role y pageSize, comprueba el rol permitido y el número finito, y lee profile.name con un valor alternativo. Resultado Una entrada válida renderiza Arya: editor. Los roles incompatibles y los tamaños no finitos producen errores de tipo explícitos. Límites Los validadores comprueban las reglas seleccionadas de rol y número finito. Continuar",
+    "title": "Validar datos y leer una ruta anidada"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.v",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/v",
+    "summary": "Crea la descripción vnode que Valyrian.js renderiza como parte de una vista.",
+    "symbol": "v",
+    "text": "v valyrian.js Crea la descripción vnode que Valyrian.js renderiza como parte de una vista. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "v"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.mount",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/mount",
+    "summary": "Conecta una vista raíz con un destino compatible e inicia su ciclo de vida en el runtime.",
+    "symbol": "mount",
+    "text": "mount valyrian.js Conecta una vista raíz con un destino compatible e inicia su ciclo de vida en el runtime. Importación Firma pública Parámetros Resultado Efectos observables Conecta la raíz de la aplicación con el destino del DOM seleccionado e inicia una actualización. Guía relacionada",
+    "title": "mount"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.unmount",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/unmount",
+    "summary": "Retira la raíz montada y termina su ciclo de vida montado.",
+    "symbol": "unmount",
+    "text": "unmount valyrian.js Retira la raíz montada y termina su ciclo de vida montado. Importación Firma pública Parámetros No recibe parámetros. Resultado Efectos observables Elimina la raíz montada y ejecuta los callbacks registrados de salida y limpieza. Guía relacionada",
+    "title": "unmount"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.update",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/update",
+    "summary": "Solicita una actualización de la vista mediante el runtime público.",
+    "symbol": "update",
+    "text": "update valyrian.js Solicita una actualización de la vista mediante el runtime público. Importación Firma pública Parámetros No recibe parámetros. Resultado Efectos observables Actualiza la raíz montada con el componente actual. Guía relacionada",
+    "title": "update"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.debouncedUpdate",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/debounced-update",
+    "summary": "Agrupa solicitudes repetidas de actualización según el comportamiento temporal de la API pública.",
+    "symbol": "debouncedUpdate",
+    "text": "debouncedUpdate valyrian.js Agrupa solicitudes repetidas de actualización según el comportamiento temporal de la API pública. Importación Firma pública Parámetros Resultado Efectos observables Programa la actualización solicitada más reciente después del retraso. Guía relacionada",
+    "title": "debouncedUpdate"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.preventUpdate",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/prevent-update",
+    "summary": "Impide la actualización que normalmente seguiría a una interacción compatible.",
+    "symbol": "preventUpdate",
+    "text": "preventUpdate valyrian.js Impide la actualización que normalmente seguiría a una interacción compatible. Importación Firma pública Parámetros No recibe parámetros. Resultado Guía relacionada",
+    "title": "preventUpdate"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.onCreate",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/on-create",
+    "summary": "Registra trabajo para el momento en que una vista entra en el árbol renderizado.",
+    "symbol": "onCreate",
+    "text": "onCreate valyrian.js Registra trabajo para el momento en que una vista entra en el árbol renderizado. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "onCreate"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.onUpdate",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/on-update",
+    "summary": "Registra trabajo que se ejecuta después de actualizar una vista.",
+    "symbol": "onUpdate",
+    "text": "onUpdate valyrian.js Registra trabajo que se ejecuta después de actualizar una vista. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "onUpdate"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.onCleanup",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/on-cleanup",
+    "summary": "Registra trabajo de limpieza para el ciclo de vida de la vista actual.",
+    "symbol": "onCleanup",
+    "text": "onCleanup valyrian.js Registra trabajo de limpieza para el ciclo de vida de la vista actual. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "onCleanup"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.onRemove",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/on-remove",
+    "summary": "Registra trabajo para el momento en que una vista sale del árbol renderizado.",
+    "symbol": "onRemove",
+    "text": "onRemove valyrian.js Registra trabajo para el momento en que una vista sale del árbol renderizado. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "onRemove"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.directive",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/directive",
+    "summary": "Registra una directiva con nombre para usarla en nodos renderizados.",
+    "symbol": "directive",
+    "text": "directive valyrian.js Registra una directiva con nombre para usarla en nodos renderizados. Importación Firma pública Parámetros Resultado Efectos observables Registra o sustituye la directiva mediante su nombre. Guía relacionada",
+    "title": "directive"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.directives",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/directives",
+    "summary": "Expone por nombre las directivas registradas en el runtime.",
+    "symbol": "directives",
+    "text": "directives valyrian.js Expone por nombre las directivas registradas en el runtime. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "directives"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.trust",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/trust",
+    "summary": "Renderiza la cadena HTML proporcionada sin validarla ni sanitizarla.",
+    "symbol": "trust",
+    "text": "trust valyrian.js Renderiza la cadena HTML proporcionada sin validarla ni sanitizarla. Importación Firma pública Parámetros Resultado Efectos observables Interpreta la cadena proporcionada mediante innerHTML sin sanitizarla. Guía relacionada",
+    "title": "trust"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.Vnode",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/vnode",
+    "summary": "Representa un nodo virtual con su etiqueta, propiedades, hijos y estado del ciclo de vida.",
+    "symbol": "Vnode",
+    "text": "Vnode valyrian.js Representa un nodo virtual con su etiqueta, propiedades, hijos y estado del ciclo de vida. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "Vnode"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.createElement",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/create-element",
+    "summary": "Crea un elemento del DOM o SVG para la etiqueta solicitada.",
+    "symbol": "createElement",
+    "text": "createElement valyrian.js Crea un elemento del DOM o SVG para la etiqueta solicitada. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "createElement"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.current",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/current",
+    "summary": "Expone el vnode, el componente y el evento que procesa el runtime en ese momento.",
+    "symbol": "current",
+    "text": "current valyrian.js Expone el vnode, el componente y el evento que procesa el runtime en ese momento. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "current"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.fragment",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/fragment",
+    "summary": "Identifica un fragmento que agrupa hijos sin agregar un elemento contenedor.",
+    "symbol": "fragment",
+    "text": "fragment valyrian.js Identifica un fragmento que agrupa hijos sin agregar un elemento contenedor. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "fragment"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.hydrateDomToVnode",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/hydrate-dom-to-vnode",
+    "summary": "Construye una representación vnode a partir de un valor existente del DOM.",
+    "symbol": "hydrateDomToVnode",
+    "text": "hydrateDomToVnode valyrian.js Construye una representación vnode a partir de un valor existente del DOM. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hydrateDomToVnode"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.isComponent",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/is-component",
+    "summary": "Comprueba si un valor cumple una forma de componente compatible.",
+    "symbol": "isComponent",
+    "text": "isComponent valyrian.js Comprueba si un valor cumple una forma de componente compatible. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isComponent"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.isNodeJs",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/is-node-js",
+    "summary": "Indica si Valyrian.js se ejecuta en un entorno de Node.js.",
+    "symbol": "isNodeJs",
+    "text": "isNodeJs valyrian.js Indica si Valyrian.js se ejecuta en un entorno de Node.js. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "isNodeJs"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.isPOJOComponent",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/is-pojocomponent",
+    "summary": "Comprueba si un valor es un componente de objeto plano con una vista.",
+    "symbol": "isPOJOComponent",
+    "text": "isPOJOComponent valyrian.js Comprueba si un valor es un componente de objeto plano con una vista. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isPOJOComponent"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.isVnode",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/is-vnode",
+    "summary": "Comprueba si un valor es un vnode de Valyrian.js.",
+    "symbol": "isVnode",
+    "text": "isVnode valyrian.js Comprueba si un valor es un vnode de Valyrian.js. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isVnode"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.isVnodeComponent",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/is-vnode-component",
+    "summary": "Comprueba si un valor es un vnode cuya etiqueta es un componente.",
+    "symbol": "isVnodeComponent",
+    "text": "isVnodeComponent valyrian.js Comprueba si un valor es un vnode cuya etiqueta es un componente. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isVnodeComponent"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.reservedProps",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/reserved-props",
+    "summary": "Expone los nombres de propiedades reservados por Valyrian.js.",
+    "symbol": "reservedProps",
+    "text": "reservedProps valyrian.js Expone los nombres de propiedades reservados por Valyrian.js. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "reservedProps"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.setAttribute",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/set-attribute",
+    "summary": "Aplica el valor de una propiedad al DOM representado por un vnode.",
+    "symbol": "setAttribute",
+    "text": "setAttribute valyrian.js Aplica el valor de una propiedad al DOM representado por un vnode. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "setAttribute"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.setPropNameReserved",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/set-prop-name-reserved",
+    "summary": "Marca el nombre de una propiedad para que el runtime lo maneje de forma especial.",
+    "symbol": "setPropNameReserved",
+    "text": "setPropNameReserved valyrian.js Marca el nombre de una propiedad para que el runtime lo maneje de forma especial. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "setPropNameReserved"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.updateAttributes",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/update-attributes",
+    "summary": "Concilia las propiedades de un vnode nuevo con su estado anterior en el DOM.",
+    "symbol": "updateAttributes",
+    "text": "updateAttributes valyrian.js Concilia las propiedades de un vnode nuevo con su estado anterior en el DOM. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "updateAttributes"
+  },
+  {
+    "group": "runtime-views",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.runtime-views.updateVnode",
+    "module": "valyrian.js",
+    "pathname": "/reference/runtime-views/update-vnode",
+    "summary": "Actualiza el DOM renderizado para un vnode y devuelve la salida de servidor cuando se produce.",
+    "symbol": "updateVnode",
+    "text": "updateVnode valyrian.js Actualiza el DOM renderizado para un vnode y devuelve la salida de servidor cuando se produce. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "updateVnode"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.routing.Router",
+    "module": "valyrian.js/router",
+    "pathname": "/reference/routing/router",
+    "summary": "Coordina definiciones de rutas y resuelve la navegación mediante el flujo público del router.",
+    "symbol": "Router",
+    "text": "Router valyrian.js/router Coordina definiciones de rutas y resuelve la navegación mediante el flujo público del router. Importación Firma pública Parámetros Resultado Errores Las operaciones del router rechazan middleware inválido, condiciones de error incompatibles, manejo circular de errores y uso incorrecto de subrouters mediante RouterError. Guía relacionada",
+    "title": "Router"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.routing.RouterError",
+    "module": "valyrian.js/router",
+    "pathname": "/reference/routing/router-error",
+    "summary": "Representa una falla del router expuesta para su manejo en la aplicación.",
+    "symbol": "RouterError",
+    "text": "RouterError valyrian.js/router Representa una falla del router expuesta para su manejo en la aplicación. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "RouterError"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.routing.mountRouter",
+    "module": "valyrian.js/router",
+    "pathname": "/reference/routing/mount-router",
+    "summary": "Conecta un router con el flujo montado de la aplicación.",
+    "symbol": "mountRouter",
+    "text": "mountRouter valyrian.js/router Conecta un router con el flujo montado de la aplicación. Importación Firma pública Parámetros Resultado Efectos observables Monta el router en el destino e inicia la resolución de rutas. Guía relacionada",
+    "title": "mountRouter"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.routing.redirect",
+    "module": "valyrian.js/router",
+    "pathname": "/reference/routing/redirect",
+    "summary": "Continúa la navegación en otra ubicación compatible.",
+    "symbol": "redirect",
+    "text": "redirect valyrian.js/router Continúa la navegación en otra ubicación compatible. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "redirect"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.routing.beforeRoute",
+    "module": "valyrian.js/router",
+    "pathname": "/reference/routing/before-route",
+    "summary": "Registra trabajo que se ejecuta antes de completar una transición de ruta compatible.",
+    "symbol": "beforeRoute",
+    "text": "beforeRoute valyrian.js/router Registra trabajo que se ejecuta antes de completar una transición de ruta compatible. Importación Firma pública Parámetros Resultado Errores Lanza RouterError cuando el router no está montado o la llamada ocurre fuera del contexto de un componente. Guía relacionada",
+    "title": "beforeRoute"
+  },
+  {
+    "group": "routing",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.routing.afterRoute",
+    "module": "valyrian.js/router",
+    "pathname": "/reference/routing/after-route",
+    "summary": "Registra trabajo asociado con una transición de ruta completada.",
+    "symbol": "afterRoute",
+    "text": "afterRoute valyrian.js/router Registra trabajo asociado con una transición de ruta completada. Importación Firma pública Parámetros Resultado Errores Lanza RouterError cuando el router no está montado o la llamada ocurre fuera del contexto de un componente. Guía relacionada",
+    "title": "afterRoute"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.data-async.request",
+    "module": "valyrian.js/request",
+    "pathname": "/reference/data-async/request",
+    "summary": "Inicia una operación HTTP mediante la API pública de cliente de Valyrian.js.",
+    "symbol": "request",
+    "text": "request valyrian.js/request Inicia una operación HTTP mediante la API pública de cliente de Valyrian.js. Importación Firma pública Parámetros Resultado Efectos observables Inicia una operación HTTP mediante el cliente de solicitudes configurado. Guía relacionada",
+    "title": "request"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.data-async.Suspense",
+    "module": "valyrian.js/suspense",
+    "pathname": "/reference/data-async/suspense",
+    "summary": "Define un límite pendiente alrededor de contenido asíncrono compatible.",
+    "symbol": "Suspense",
+    "text": "Suspense valyrian.js/suspense Define un límite pendiente alrededor de contenido asíncrono compatible. Importación Firma pública Parámetros Resultado Errores Lanza un error cuando se renderiza fuera de un componente o sin suspenseKey. Guía relacionada",
+    "title": "Suspense"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.data-async.Task",
+    "module": "valyrian.js/tasks",
+    "pathname": "/reference/data-async/task",
+    "summary": "Coordina trabajo asíncrono cuyo resultado actual puede sustituir uno anterior.",
+    "symbol": "Task",
+    "text": "Task valyrian.js/tasks Coordina trabajo asíncrono cuyo resultado actual puede sustituir uno anterior. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "Task"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.data-async.QueryClient",
+    "module": "valyrian.js/query",
+    "pathname": "/reference/data-async/query-client",
+    "summary": "Coordina los flujos compatibles de consultas y mutaciones que comparte una aplicación.",
+    "symbol": "QueryClient",
+    "text": "QueryClient valyrian.js/query Coordina los flujos compatibles de consultas y mutaciones que comparte una aplicación. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "QueryClient"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.data-async.QueryHandle",
+    "module": "valyrian.js/query",
+    "pathname": "/reference/data-async/query-handle",
+    "summary": "Expone el estado y las operaciones públicas de una consulta.",
+    "symbol": "QueryHandle",
+    "text": "QueryHandle valyrian.js/query Expone el estado y las operaciones públicas de una consulta. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "QueryHandle"
+  },
+  {
+    "group": "data-async",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.data-async.MutationHandle",
+    "module": "valyrian.js/query",
+    "pathname": "/reference/data-async/mutation-handle",
+    "summary": "Expone el estado y las operaciones públicas de una mutación.",
+    "symbol": "MutationHandle",
+    "text": "MutationHandle valyrian.js/query Expone el estado y las operaciones públicas de una mutación. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "MutationHandle"
+  },
+  {
+    "group": "network-offline",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.network-offline.NetworkManager",
+    "module": "valyrian.js/network",
+    "pathname": "/reference/network-offline/network-manager",
+    "summary": "Expone el estado de red y el flujo de eventos compatibles con Valyrian.js.",
+    "symbol": "NetworkManager",
+    "text": "NetworkManager valyrian.js/network Expone el estado de red y el flujo de eventos compatibles con Valyrian.js. Importación Firma pública Parámetros Resultado Errores Lanza NetworkError cuando no hay navigator, no hay conexión disponible o el tipo de evento es inválido. Guía relacionada",
+    "title": "NetworkManager"
+  },
+  {
+    "group": "network-offline",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.network-offline.NetworkEvent",
+    "module": "valyrian.js/network",
+    "pathname": "/reference/network-offline/network-event",
+    "summary": "Identifica un evento público dentro del flujo compatible de red.",
+    "symbol": "NetworkEvent",
+    "text": "NetworkEvent valyrian.js/network Identifica un evento público dentro del flujo compatible de red. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "NetworkEvent"
+  },
+  {
+    "group": "network-offline",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.network-offline.NetworkError",
+    "module": "valyrian.js/network",
+    "pathname": "/reference/network-offline/network-error",
+    "summary": "Representa una falla pública de red que la aplicación puede manejar.",
+    "symbol": "NetworkError",
+    "text": "NetworkError valyrian.js/network Representa una falla pública de red que la aplicación puede manejar. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "NetworkError"
+  },
+  {
+    "group": "network-offline",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.network-offline.OfflineQueue",
+    "module": "valyrian.js/offline",
+    "pathname": "/reference/network-offline/offline-queue",
+    "summary": "Conserva operaciones adecuadas para un intento posterior de procesamiento.",
+    "symbol": "OfflineQueue",
+    "text": "OfflineQueue valyrian.js/offline Conserva operaciones adecuadas para un intento posterior de procesamiento. Importación Firma pública Parámetros Resultado Errores Lanza TypeError cuando falta options.network. Guía relacionada",
+    "title": "OfflineQueue"
+  },
+  {
+    "group": "state",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.state.createPulse",
+    "module": "valyrian.js/pulses",
+    "pathname": "/reference/state/create-pulse",
+    "summary": "Crea un valor reactivo mediante el contrato de pulse.",
+    "symbol": "createPulse",
+    "text": "createPulse valyrian.js/pulses Crea un valor reactivo mediante el contrato de pulse. Importación Firma pública Parámetros Resultado Efectos observables Cambiar el valor del pulse notifica al flujo reactivo que lo controla. Guía relacionada",
+    "title": "createPulse"
+  },
+  {
+    "group": "state",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.state.createPulseStore",
+    "module": "valyrian.js/pulses",
+    "pathname": "/reference/state/create-pulse-store",
+    "summary": "Crea un store reactivo mediante el contrato de pulse store.",
+    "symbol": "createPulseStore",
+    "text": "createPulseStore valyrian.js/pulses Crea un store reactivo mediante el contrato de pulse store. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "createPulseStore"
+  },
+  {
+    "group": "state",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.state.createMutableStore",
+    "module": "valyrian.js/pulses",
+    "pathname": "/reference/state/create-mutable-store",
+    "summary": "Crea un store que sigue el contrato público de estado mutable.",
+    "symbol": "createMutableStore",
+    "text": "createMutableStore valyrian.js/pulses Crea un store que sigue el contrato público de estado mutable. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "createMutableStore"
+  },
+  {
+    "group": "state",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.state.createEffect",
+    "module": "valyrian.js/pulses",
+    "pathname": "/reference/state/create-effect",
+    "summary": "Crea trabajo que reacciona a cambios de estado compatibles.",
+    "symbol": "createEffect",
+    "text": "createEffect valyrian.js/pulses Crea trabajo que reacciona a cambios de estado compatibles. Importación Firma pública Parámetros Resultado Efectos observables Ejecuta trabajo reactivo y devuelve una función para desecharlo. Guía relacionada",
+    "title": "createEffect"
+  },
+  {
+    "group": "state",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.state.FluxStore",
+    "module": "valyrian.js/flux-store",
+    "pathname": "/reference/state/flux-store",
+    "summary": "Organiza estado mediante el modelo público de acciones y transiciones de Flux.",
+    "symbol": "FluxStore",
+    "text": "FluxStore valyrian.js/flux-store Organiza estado mediante el modelo público de acciones y transiciones de Flux. Importación Firma pública Parámetros Resultado Errores Lanza errores ante rutas de mutación inválidas, namespaces duplicados y funciones incompatibles del store. Guía relacionada",
+    "title": "FluxStore"
+  },
+  {
+    "group": "forms",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.forms.FormStore",
+    "module": "valyrian.js/forms",
+    "pathname": "/reference/forms/form-store",
+    "summary": "Mantiene juntos los valores, errores y estados de interacción compatibles de un formulario.",
+    "symbol": "FormStore",
+    "text": "FormStore valyrian.js/forms Mantiene juntos los valores, errores y estados de interacción compatibles de un formulario. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "FormStore"
+  },
+  {
+    "group": "forms",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.forms.formSchemaShield",
+    "module": "valyrian.js/forms",
+    "pathname": "/reference/forms/form-schema-shield",
+    "summary": "Aplica el flujo de validación por esquema que se expone para formularios de Valyrian.js.",
+    "symbol": "formSchemaShield",
+    "text": "formSchemaShield valyrian.js/forms Aplica el flujo de validación por esquema que se expone para formularios de Valyrian.js. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "formSchemaShield"
+  },
+  {
+    "group": "devtools",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.devtools.connectPulse",
+    "module": "valyrian.js/redux-devtools",
+    "pathname": "/reference/devtools/connect-pulse",
+    "summary": "Conecta un pulse con el flujo compatible de inspección de DevTools.",
+    "symbol": "connectPulse",
+    "text": "connectPulse valyrian.js/redux-devtools Conecta un pulse con el flujo compatible de inspección de DevTools. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "connectPulse"
+  },
+  {
+    "group": "devtools",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.devtools.connectPulseStore",
+    "module": "valyrian.js/redux-devtools",
+    "pathname": "/reference/devtools/connect-pulse-store",
+    "summary": "Conecta un pulse store con el flujo compatible de inspección de DevTools.",
+    "symbol": "connectPulseStore",
+    "text": "connectPulseStore valyrian.js/redux-devtools Conecta un pulse store con el flujo compatible de inspección de DevTools. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "connectPulseStore"
+  },
+  {
+    "group": "devtools",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.devtools.connectFluxStore",
+    "module": "valyrian.js/redux-devtools",
+    "pathname": "/reference/devtools/connect-flux-store",
+    "summary": "Conecta un Flux store con el flujo compatible de inspección de DevTools.",
+    "symbol": "connectFluxStore",
+    "text": "connectFluxStore valyrian.js/redux-devtools Conecta un Flux store con el flujo compatible de inspección de DevTools. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "connectFluxStore"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.getLang",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/get-lang",
+    "summary": "Devuelve el idioma de traducción activo.",
+    "symbol": "getLang",
+    "text": "getLang valyrian.js/translate Devuelve el idioma de traducción activo. Importación Firma pública Parámetros No recibe parámetros. Resultado Guía relacionada",
+    "title": "getLang"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.getTranslations",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/get-translations",
+    "summary": "Devuelve los diccionarios de traducción configurados.",
+    "symbol": "getTranslations",
+    "text": "getTranslations valyrian.js/translate Devuelve los diccionarios de traducción configurados. Importación Firma pública Parámetros No recibe parámetros. Resultado Guía relacionada",
+    "title": "getTranslations"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.setLang",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/set-lang",
+    "summary": "Selecciona uno de los idiomas de traducción configurados.",
+    "symbol": "setLang",
+    "text": "setLang valyrian.js/translate Selecciona uno de los idiomas de traducción configurados. Importación Firma pública Parámetros Resultado Efectos observables Cambia el idioma de traducción activo mediante la estrategia de almacenamiento configurada. Errores Lanza un error cuando el idioma solicitado no tiene un diccionario configurado. Guía relacionada",
+    "title": "setLang"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.setLog",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/set-log",
+    "summary": "Activa o desactiva el registro de la traducción.",
+    "symbol": "setLog",
+    "text": "setLog valyrian.js/translate Activa o desactiva el registro de la traducción. Importación Firma pública Parámetros Resultado Efectos observables Cambia si se registra la actividad de traducciones faltantes. Guía relacionada",
+    "title": "setLog"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.setStoreStrategy",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/set-store-strategy",
+    "summary": "Configura cómo el módulo de traducción lee y conserva el idioma activo.",
+    "symbol": "setStoreStrategy",
+    "text": "setStoreStrategy valyrian.js/translate Configura cómo el módulo de traducción lee y conserva el idioma activo. Importación Firma pública Parámetros Resultado Efectos observables Sustituye la estrategia utilizada para leer y conservar el idioma activo. Guía relacionada",
+    "title": "setStoreStrategy"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.setTranslations",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/set-translations",
+    "summary": "Configura el diccionario predeterminado y combina los diccionarios de idiomas adicionales.",
+    "symbol": "setTranslations",
+    "text": "setTranslations valyrian.js/translate Configura el diccionario predeterminado y combina los diccionarios de idiomas adicionales. Importación Firma pública Parámetros Resultado Efectos observables Sustituye el diccionario predeterminado y actualiza los diccionarios de idiomas adicionales. Guía relacionada",
+    "title": "setTranslations"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.t",
+    "module": "valyrian.js/translate",
+    "pathname": "/reference/utilities/t",
+    "summary": "Resuelve un mensaje traducido mediante su ruta y sustituye los parámetros proporcionados.",
+    "symbol": "t",
+    "text": "t valyrian.js/translate Resuelve un mensaje traducido mediante su ruta y sustituye los parámetros proporcionados. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "t"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.Money",
+    "module": "valyrian.js/money",
+    "pathname": "/reference/utilities/money",
+    "summary": "Representa una cantidad monetaria en centavos enteros y ofrece operaciones aritméticas.",
+    "symbol": "Money",
+    "text": "Money valyrian.js/money Representa una cantidad monetaria en centavos enteros y ofrece operaciones aritméticas. Importación Firma pública Parámetros No recibe parámetros. Resultado Errores La división lanza un error cuando el divisor es cero. Guía relacionada",
+    "title": "Money"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.NumberFormatter",
+    "module": "valyrian.js/money",
+    "pathname": "/reference/utilities/number-formatter",
+    "summary": "Construye y transforma un valor numérico antes de aplicarle un formato localizado.",
+    "symbol": "NumberFormatter",
+    "text": "NumberFormatter valyrian.js/money Construye y transforma un valor numérico antes de aplicarle un formato localizado. Importación Firma pública Parámetros No recibe parámetros. Resultado Guía relacionada",
+    "title": "NumberFormatter"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.formatMoney",
+    "module": "valyrian.js/money",
+    "pathname": "/reference/utilities/format-money",
+    "summary": "Formatea un valor Money o numérico con las opciones solicitadas de moneda e idioma.",
+    "symbol": "formatMoney",
+    "text": "formatMoney valyrian.js/money Formatea un valor Money o numérico con las opciones solicitadas de moneda e idioma. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "formatMoney"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.parseMoneyInput",
+    "module": "valyrian.js/money",
+    "pathname": "/reference/utilities/parse-money-input",
+    "summary": "Interpreta un texto localizado y lo convierte en una cantidad Money.",
+    "symbol": "parseMoneyInput",
+    "text": "parseMoneyInput valyrian.js/money Interpreta un texto localizado y lo convierte en una cantidad Money. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "parseMoneyInput"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.StorageType",
+    "module": "valyrian.js/native-store",
+    "pathname": "/reference/utilities/storage-type",
+    "summary": "Identifica las estrategias de almacenamiento nativo que acepta createNativeStore.",
+    "symbol": "StorageType",
+    "text": "StorageType valyrian.js/native-store Identifica las estrategias de almacenamiento nativo que acepta createNativeStore. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "StorageType"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.createNativeStore",
+    "module": "valyrian.js/native-store",
+    "pathname": "/reference/utilities/create-native-store",
+    "summary": "Crea un store con nombre mediante el tipo seleccionado o lo devuelve cuando se habilita su reutilización.",
+    "symbol": "createNativeStore",
+    "text": "createNativeStore valyrian.js/native-store Crea un store con nombre mediante el tipo seleccionado o lo devuelve cuando se habilita su reutilización. Importación Firma pública Parámetros Resultado Efectos observables Crea el store con nombre mediante el tipo de almacenamiento seleccionado. Errores Lanza un error cuando ya existe un store con el mismo identificador y no se habilitó su reutilización. Guía relacionada",
+    "title": "createNativeStore"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.deepCloneUnfreeze",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/deep-clone-unfreeze",
+    "summary": "Crea una copia profunda y mutable del valor proporcionado.",
+    "symbol": "deepCloneUnfreeze",
+    "text": "deepCloneUnfreeze valyrian.js/utils Crea una copia profunda y mutable del valor proporcionado. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "deepCloneUnfreeze"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.deepFreeze",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/deep-freeze",
+    "summary": "Congela de forma recursiva el grafo de un objeto.",
+    "symbol": "deepFreeze",
+    "text": "deepFreeze valyrian.js/utils Congela de forma recursiva el grafo de un objeto. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "deepFreeze"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.ensureIn",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/ensure-in",
+    "summary": "Comprueba si un valor pertenece a una colección permitida.",
+    "symbol": "ensureIn",
+    "text": "ensureIn valyrian.js/utils Comprueba si un valor pertenece a una colección permitida. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "ensureIn"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.get",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/get",
+    "summary": "Lee un valor anidado mediante su ruta y devuelve el valor alternativo cuando hace falta.",
+    "symbol": "get",
+    "text": "get valyrian.js/utils Lee un valor anidado mediante su ruta y devuelve el valor alternativo cuando hace falta. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "get"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.hasChanged",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/has-changed",
+    "summary": "Comprueba si el valor actual difiere del valor anterior.",
+    "symbol": "hasChanged",
+    "text": "hasChanged valyrian.js/utils Comprueba si el valor actual difiere del valor anterior. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hasChanged"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.hasLength",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/has-length",
+    "summary": "Comprueba si un valor tiene la longitud solicitada.",
+    "symbol": "hasLength",
+    "text": "hasLength valyrian.js/utils Comprueba si un valor tiene la longitud solicitada. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hasLength"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.hasLengthBetween",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/has-length-between",
+    "summary": "Comprueba si la longitud de un valor está dentro de un intervalo inclusivo.",
+    "symbol": "hasLengthBetween",
+    "text": "hasLengthBetween valyrian.js/utils Comprueba si la longitud de un valor está dentro de un intervalo inclusivo. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hasLengthBetween"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.hasMaxLength",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/has-max-length",
+    "summary": "Comprueba si un valor respeta una longitud máxima.",
+    "symbol": "hasMaxLength",
+    "text": "hasMaxLength valyrian.js/utils Comprueba si un valor respeta una longitud máxima. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hasMaxLength"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.hasMinLength",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/has-min-length",
+    "summary": "Comprueba si un valor alcanza una longitud mínima.",
+    "symbol": "hasMinLength",
+    "text": "hasMinLength valyrian.js/utils Comprueba si un valor alcanza una longitud mínima. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hasMinLength"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.is",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is",
+    "summary": "Comprueba si un valor coincide con el tipo o constructor solicitado.",
+    "symbol": "is",
+    "text": "is valyrian.js/utils Comprueba si un valor coincide con el tipo o constructor solicitado. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "is"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isBetween",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-between",
+    "summary": "Comprueba si un valor numérico está dentro de un intervalo inclusivo.",
+    "symbol": "isBetween",
+    "text": "isBetween valyrian.js/utils Comprueba si un valor numérico está dentro de un intervalo inclusivo. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isBetween"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isBoolean",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-boolean",
+    "summary": "Comprueba si un valor es booleano.",
+    "symbol": "isBoolean",
+    "text": "isBoolean valyrian.js/utils Comprueba si un valor es booleano. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isBoolean"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isEmpty",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-empty",
+    "summary": "Comprueba si un valor compatible no contiene datos.",
+    "symbol": "isEmpty",
+    "text": "isEmpty valyrian.js/utils Comprueba si un valor compatible no contiene datos. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isEmpty"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isFiniteNumber",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-finite-number",
+    "summary": "Comprueba si un valor es un número finito.",
+    "symbol": "isFiniteNumber",
+    "text": "isFiniteNumber valyrian.js/utils Comprueba si un valor es un número finito. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isFiniteNumber"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isFunction",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-function",
+    "summary": "Comprueba si un valor es una función.",
+    "symbol": "isFunction",
+    "text": "isFunction valyrian.js/utils Comprueba si un valor es una función. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isFunction"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isGreaterThan",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-greater-than",
+    "summary": "Comprueba si un valor numérico supera un límite.",
+    "symbol": "isGreaterThan",
+    "text": "isGreaterThan valyrian.js/utils Comprueba si un valor numérico supera un límite. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isGreaterThan"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isLessThan",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-less-than",
+    "summary": "Comprueba si un valor numérico es menor que un límite.",
+    "symbol": "isLessThan",
+    "text": "isLessThan valyrian.js/utils Comprueba si un valor numérico es menor que un límite. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isLessThan"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isNumber",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-number",
+    "summary": "Comprueba si un valor es numérico.",
+    "symbol": "isNumber",
+    "text": "isNumber valyrian.js/utils Comprueba si un valor es numérico. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isNumber"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isObject",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-object",
+    "summary": "Comprueba si un valor es un objeto.",
+    "symbol": "isObject",
+    "text": "isObject valyrian.js/utils Comprueba si un valor es un objeto. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isObject"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.isString",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/is-string",
+    "summary": "Comprueba si un valor es una cadena.",
+    "symbol": "isString",
+    "text": "isString valyrian.js/utils Comprueba si un valor es una cadena. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "isString"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.pick",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/pick",
+    "summary": "Crea un objeto con las claves seleccionadas de un valor de origen.",
+    "symbol": "pick",
+    "text": "pick valyrian.js/utils Crea un objeto con las claves seleccionadas de un valor de origen. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "pick"
+  },
+  {
+    "group": "utilities",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.utilities.set",
+    "module": "valyrian.js/utils",
+    "pathname": "/reference/utilities/set",
+    "summary": "Escribe un valor en una ruta anidada de un objeto.",
+    "symbol": "set",
+    "text": "set valyrian.js/utils Escribe un valor en una ruta anidada de un objeto. Importación Firma pública Parámetros Resultado Efectos observables Crea los segmentos faltantes de la ruta y escribe el valor en el objeto de origen. Guía relacionada",
+    "title": "set"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.Event",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/event",
+    "summary": "Representa un evento del DOM en el servidor con estado de propagación y cancelación.",
+    "symbol": "Event",
+    "text": "Event valyrian.js/node Representa un evento del DOM en el servidor con estado de propagación y cancelación. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "Event"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.ServerStorage",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/server-storage",
+    "summary": "Guarda valores mediante el contrato público de almacenamiento del servidor.",
+    "symbol": "ServerStorage",
+    "text": "ServerStorage valyrian.js/node Guarda valores mediante el contrato público de almacenamiento del servidor. Importación Firma pública Parámetros No recibe parámetros. Resultado Guía relacionada",
+    "title": "ServerStorage"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.document",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/document",
+    "summary": "Expone el documento del servidor que utilizan las funciones del DOM.",
+    "symbol": "document",
+    "text": "document valyrian.js/node Expone el documento del servidor que utilizan las funciones del DOM. Importación Firma pública Parámetros Este símbolo expone un valor y no recibe parámetros. Resultado Guía relacionada",
+    "title": "document"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.domToHtml",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/dom-to-html",
+    "summary": "Serializa como HTML un valor del DOM del servidor.",
+    "symbol": "domToHtml",
+    "text": "domToHtml valyrian.js/node Serializa como HTML un valor del DOM del servidor. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "domToHtml"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.domToHyperscript",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/dom-to-hyperscript",
+    "summary": "Serializa nodos hijos del servidor como código hyperscript.",
+    "symbol": "domToHyperscript",
+    "text": "domToHyperscript valyrian.js/node Serializa nodos hijos del servidor como código hyperscript. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "domToHyperscript"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.htmlToDom",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/html-to-dom",
+    "summary": "Interpreta HTML y produce un valor del DOM del servidor.",
+    "symbol": "htmlToDom",
+    "text": "htmlToDom valyrian.js/node Interpreta HTML y produce un valor del DOM del servidor. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "htmlToDom"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.htmlToHyperscript",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/html-to-hyperscript",
+    "summary": "Convierte texto HTML en código hyperscript.",
+    "symbol": "htmlToHyperscript",
+    "text": "htmlToHyperscript valyrian.js/node Convierte texto HTML en código hyperscript. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "htmlToHyperscript"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.icons",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/icons",
+    "summary": "Genera recursos de iconos y sus enlaces relacionados a partir de una imagen de origen.",
+    "symbol": "icons",
+    "text": "icons valyrian.js/node Genera recursos de iconos y sus enlaces relacionados a partir de una imagen de origen. Importación Firma pública Parámetros Resultado Efectos observables Lee la imagen de origen y escribe los recursos de iconos y enlaces configurados. Guía relacionada",
+    "title": "icons"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Errores",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.inline",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/inline",
+    "summary": "Procesa un recurso compatible mediante la API pública de integración en línea del servidor.",
+    "symbol": "inline",
+    "text": "inline valyrian.js/node Procesa un recurso compatible mediante la API pública de integración en línea del servidor. Importación Firma pública Parámetros Resultado Efectos observables Lee o transforma el recurso proporcionado y resuelve de forma asíncrona un objeto de salida. Errores Rechaza tipos de archivo desconocidos y errores de transformación. Guía relacionada",
+    "title": "inline"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.render",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/render",
+    "summary": "Produce una salida de servidor a partir de una vista compatible de Valyrian.js.",
+    "symbol": "render",
+    "text": "render valyrian.js/node Produce una salida de servidor a partir de una vista compatible de Valyrian.js. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "render"
+  },
+  {
+    "group": "server",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.server.sw",
+    "module": "valyrian.js/node",
+    "pathname": "/reference/server/sw",
+    "summary": "Construye un recurso de service worker con las opciones de servidor solicitadas.",
+    "symbol": "sw",
+    "text": "sw valyrian.js/node Construye un recurso de service worker con las opciones de servidor solicitadas. Importación Firma pública Parámetros Resultado Efectos observables Transforma y escribe el recurso de service worker solicitado. Guía relacionada",
+    "title": "sw"
+  },
+  {
+    "group": "pwa",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.pwa.SwRuntimeManager",
+    "module": "valyrian.js/sw",
+    "pathname": "/reference/pwa/sw-runtime-manager",
+    "summary": "Expone a la aplicación el ciclo de vida compatible del runtime del service worker.",
+    "symbol": "SwRuntimeManager",
+    "text": "SwRuntimeManager valyrian.js/sw Expone a la aplicación el ciclo de vida compatible del runtime del service worker. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "SwRuntimeManager"
+  },
+  {
+    "group": "pwa",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.pwa.registerSw",
+    "module": "valyrian.js/sw",
+    "pathname": "/reference/pwa/register-sw",
+    "summary": "Inicia el flujo compatible de registro del service worker.",
+    "symbol": "registerSw",
+    "text": "registerSw valyrian.js/sw Inicia el flujo compatible de registro del service worker. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "registerSw"
+  },
+  {
+    "group": "context",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.context.createContextScope",
+    "module": "valyrian.js/context",
+    "pathname": "/reference/context/create-context-scope",
+    "summary": "Crea un ámbito de contexto con nombre para los valores que pertenecen a un flujo de ejecución.",
+    "symbol": "createContextScope",
+    "text": "createContextScope valyrian.js/context Crea un ámbito de contexto con nombre para los valores que pertenecen a un flujo de ejecución. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "createContextScope"
+  },
+  {
+    "group": "context",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.context.getContext",
+    "module": "valyrian.js/context",
+    "pathname": "/reference/context/get-context",
+    "summary": "Lee el valor asociado con un ámbito de contexto dentro de la ejecución activa.",
+    "symbol": "getContext",
+    "text": "getContext valyrian.js/context Lee el valor asociado con un ámbito de contexto dentro de la ejecución activa. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "getContext"
+  },
+  {
+    "group": "context",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.context.hasContext",
+    "module": "valyrian.js/context",
+    "pathname": "/reference/context/has-context",
+    "summary": "Indica si la ejecución activa contiene un valor para un ámbito de contexto.",
+    "symbol": "hasContext",
+    "text": "hasContext valyrian.js/context Indica si la ejecución activa contiene un valor para un ámbito de contexto. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "hasContext"
+  },
+  {
+    "group": "context",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.context.isServerContextActive",
+    "module": "valyrian.js/context",
+    "pathname": "/reference/context/is-server-context-active",
+    "summary": "Indica si el almacenamiento de contexto del servidor está activo para la ejecución actual.",
+    "symbol": "isServerContextActive",
+    "text": "isServerContextActive valyrian.js/context Indica si el almacenamiento de contexto del servidor está activo para la ejecución actual. Importación Firma pública Parámetros No recibe parámetros. Resultado Guía relacionada",
+    "title": "isServerContextActive"
+  },
+  {
+    "group": "context",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Guía relacionada"
+    ],
+    "id": "reference.context.runWithContext",
+    "module": "valyrian.js/context",
+    "pathname": "/reference/context/run-with-context",
+    "summary": "Ejecuta un callback síncrono o asíncrono con un valor asociado a un ámbito de contexto.",
+    "symbol": "runWithContext",
+    "text": "runWithContext valyrian.js/context Ejecuta un callback síncrono o asíncrono con un valor asociado a un ámbito de contexto. Importación Firma pública Parámetros Resultado Guía relacionada",
+    "title": "runWithContext"
+  },
+  {
+    "group": "context",
+    "headings": [
+      "Importación",
+      "Firma pública",
+      "Parámetros",
+      "Resultado",
+      "Efectos observables",
+      "Guía relacionada"
+    ],
+    "id": "reference.context.setContext",
+    "module": "valyrian.js/context",
+    "pathname": "/reference/context/set-context",
+    "summary": "Asocia un valor con un ámbito de contexto y devuelve una función que restaura el estado anterior.",
+    "symbol": "setContext",
+    "text": "setContext valyrian.js/context Asocia un valor con un ámbito de contexto y devuelve una función que restaura el estado anterior. Importación Firma pública Parámetros Resultado Efectos observables Cambia el valor asociado con un ámbito de contexto y devuelve una función de restauración. Guía relacionada",
+    "title": "setContext"
+  }
+]

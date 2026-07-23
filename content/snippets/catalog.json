@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "snippets": [
+    {
+      "id": "core-mount",
+      "language": "tsx",
+      "imports": [{ "module": "valyrian.js", "names": ["mount", "unmount"] }]
+    },
+    {
+      "id": "core-lifecycle",
+      "language": "tsx",
+      "imports": [
+        {
+          "module": "valyrian.js",
+          "names": ["mount", "onCreate", "onRemove", "unmount"]
+        }
+      ]
+    },
+    {
+      "id": "core-update-control",
+      "language": "tsx",
+      "imports": [
+        {
+          "module": "valyrian.js",
+          "names": ["debouncedUpdate", "mount", "preventUpdate", "update"]
+        }
+      ]
+    },
+    {
+      "id": "router-basic",
+      "language": "tsx",
+      "imports": [
+        { "module": "valyrian.js/router", "names": ["Router", "mountRouter"] }
+      ]
+    },
+    {
+      "id": "request-client",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount", "update"] },
+        { "module": "valyrian.js/request", "names": ["request"] }
+      ]
+    },
+    {
+      "id": "suspense-boundary",
+      "language": "tsx",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/suspense", "names": ["Suspense"] }
+      ]
+    },
+    {
+      "id": "task-latest",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/tasks", "names": ["Task"] }
+      ]
+    },
+    {
+      "id": "query-client",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/query", "names": ["QueryClient"] }
+      ]
+    },
+    {
+      "id": "network-status",
+      "language": "ts",
+      "imports": [
+        {
+          "module": "valyrian.js",
+          "names": ["mount", "onCreate", "update"]
+        },
+        {
+          "module": "valyrian.js/network",
+          "names": ["NetworkEvent", "NetworkManager"]
+        }
+      ]
+    },
+    {
+      "id": "offline-queue",
+      "language": "ts",
+      "imports": [
+        {
+          "module": "valyrian.js",
+          "names": ["mount", "onRemove", "update"]
+        },
+        { "module": "valyrian.js/offline", "names": ["OfflineQueue"] },
+        { "module": "valyrian.js/network", "names": ["NetworkManager"] }
+      ]
+    },
+    {
+      "id": "form-store",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/forms", "names": ["FormStore"] }
+      ]
+    },
+    {
+      "id": "pulse-value",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/pulses", "names": ["createPulse"] }
+      ]
+    },
+    {
+      "id": "pulse-store",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/pulses", "names": ["createPulseStore"] }
+      ]
+    },
+    {
+      "id": "flux-store",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/flux-store", "names": ["FluxStore"] }
+      ]
+    },
+    {
+      "id": "redux-devtools",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        { "module": "valyrian.js/pulses", "names": ["createPulse"] },
+        { "module": "valyrian.js/redux-devtools", "names": ["connectPulse"] }
+      ]
+    },
+    {
+      "id": "translate-basic",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        {
+          "module": "valyrian.js/translate",
+          "names": ["setLang", "setTranslations", "t"]
+        }
+      ]
+    },
+    {
+      "id": "money-basic",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        {
+          "module": "valyrian.js/money",
+          "names": ["Money", "formatMoney", "parseMoneyInput"]
+        }
+      ]
+    },
+    {
+      "id": "native-store",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        {
+          "module": "valyrian.js/native-store",
+          "names": ["createNativeStore"]
+        }
+      ]
+    },
+    {
+      "id": "utils-validation",
+      "language": "ts",
+      "imports": [
+        { "module": "valyrian.js", "names": ["mount"] },
+        {
+          "module": "valyrian.js/utils",
+          "names": ["ensureIn", "get", "isFiniteNumber", "pick"]
+        }
+      ]
+    }
+  ]
+}

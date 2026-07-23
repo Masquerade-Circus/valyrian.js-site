@@ -1,133 +1,136 @@
-let Log = () => {};
+const NAMESPACE = "valyrian-site";
+const VERSION = "34b4b5428e7ff681";
+const ASSET_CACHE = `${NAMESPACE}:${VERSION}:assets`;
+const PAGE_CACHE = `${NAMESPACE}:${VERSION}:pages`;
+const PREFERENCE_CACHE = `${NAMESPACE}:preferences`;
+const CURRENT_CACHES = new Set([ASSET_CACHE, PREFERENCE_CACHE, PAGE_CACHE]);
+const CACHE_FIRST_PATHS = new Set(["/app.js","/base.css","/theme.css","/main.css","/generated/content-registry.json","/generated/pages.en.json","/generated/pages.es.json","/generated/search.en.json","/generated/search.es.json","/sitemap.xml","/manifest.webmanifest","/logo.svg","/icon.svg","/icons/android-chrome-192x192.png","/icons/android-chrome-512x512.png","/icons/apple-touch-icon.png","/offline.en.html","/offline.es.html"]);
+const VERSIONED_PATHS = new Set(["/app.js","/base.css","/theme.css","/main.css","/offline.en.html","/offline.es.html"]);
+const LOCALE_KEY = "/__valyrian_locale__";
+let preferenceWrite = Promise.resolve();
+const essentialAssets = ["/app.js","/base.css","/theme.css","/main.css","/generated/content-registry.json","/generated/pages.en.json","/generated/pages.es.json","/generated/search.en.json","/generated/search.es.json","/sitemap.xml","/manifest.webmanifest","/logo.svg","/icon.svg","/icons/android-chrome-192x192.png","/icons/android-chrome-512x512.png","/icons/apple-touch-icon.png","/offline.en.html","/offline.es.html"].map((pathname) =>
+  VERSIONED_PATHS.has(pathname) ? `${pathname}?v=${VERSION}` : pathname,
+);
 
-let config = {
-  version: "v5.0.3::",
-  name: "valyrian.js",
-  urls: ["/"]
-};
-
-let cacheName = config.version + config.name;
-
-async function fetchRequest(event) {
-  Log("WORKER: fetchevent for " + event.request.url);
-  let response;
-  try {
-    // IMPORTANT: Clone the request. A request is a stream and
-    // can only be consumed once. Since we are consuming this
-    // once by cache and once by the browser for fetch, we need
-    // to clone the response.
-    let fetchRequest = event.request.clone();
-    response = await fetch(fetchRequest);
-    if (response && response.status < 300 && response.type === "basic") {
-      try {
-        // IMPORTANT: Clone the response. A response is a stream
-        // and because we want the browser to consume the response
-        // as well as the cache consuming the response, we need
-        // to clone it so we have two streams.
-        let responseToCache = response.clone();
-        let cache = await caches.open(cacheName);
-        cache.put(event.request, responseToCache);
-
-        Log("WORKER: fetch response stored in cache.", event.request.url);
-      } catch (err) {
-        Log("WORKER: fetch response could not be stored in cache.", err);
-      }
-
-      return response;
-    }
-  } catch (error) {
-    Log("WORKER: fetch request failed.", error);
-  }
-
-  let cachedResponse;
-  try {
-    cachedResponse = await caches.match(event.request);
-    if (cachedResponse) {
-      Log("WORKER: fetch request failed, responding with cache.");
-      return cachedResponse;
-    }
-  } catch (error) {
-    Log("WORKER: cache request failed.", error);
-  }
-
-  Log(
-    "WORKER: fetch request failed in both cache and network, responding with service unavailable."
-  );
-  return (
-    response ||
-    new Response("<h1>Service Unavailable</h1>", {
-      status: 503,
-      statusText: "Service Unavailable",
-      headers: new Headers({
-        "Content-Type": "text/html"
-      })
-    })
-  );
+function localeKey(clientId) {
+  return `${LOCALE_KEY}/${encodeURIComponent(clientId)}`;
 }
 
-self.addEventListener("fetch", (event) => {
-  // DevTools opening will trigger these o-i-c requests, which this SW can't handle.
-  // https://github.com/paulirish/caltrainschedule.io/issues/49
-  if (
-    event.request.cache === "only-if-cached" &&
-    event.request.mode !== "same-origin"
-  ) {
-    return;
-  }
-
-  Log("WORKER: fetch event in progress.", event.request.url);
-
-  // We only handle Get requests all others let them pass
-  if (event.request.method !== "GET") {
-    return;
-  }
-
-  event.respondWith(fetchRequest(event));
-});
-
 self.addEventListener("install", (event) => {
-  Log("WORKER: Version install", cacheName);
   event.waitUntil(
-    caches
-      .open(cacheName)
-      .then((cache) => cache.addAll(config.urls))
-      // IMPORTANT: `skipWaiting()` forces the waiting ServiceWorker to become the
-      // active ServiceWorker, triggering the `onactivate` event.
-      // Together with `Clients.claim()` this allows a worker to take effect
-      // immediately in the client(s).
-      .then(() => self.skipWaiting())
+    Promise.all([
+      caches.open(ASSET_CACHE).then((cache) => cache.addAll(essentialAssets)),
+      caches.open(PAGE_CACHE),
+    ]),
   );
 });
 
-// IMPORTANT: `onactivate` is usually called after a worker was installed and the page
-// got refreshed. Since we call `skipWaiting()` in `oninstall`, `onactivate` is
-// called immediately.
 self.addEventListener("activate", (event) => {
-  self.clients
-    .matchAll({
-      includeUncontrolled: true
-    })
-    .then((clientList) => {
-      urls = clientList.map((client) => client.url);
-      Log("WORKER: Matching clients:", urls.join(", "));
-    });
-
   event.waitUntil(
     caches
       .keys()
-      .then((keys) =>
+      .then((names) =>
         Promise.all(
-          keys
-            // Filter by keys that don't start with the latest version prefix.
-            .filter((key) => !key.startsWith(cacheName))
-            // Return a promise that's fulfilled when each outdated cache is deleted.
-            .map((key) => caches.delete(key))
-        )
+          names
+            .filter(
+              (name) =>
+                name.startsWith(`${NAMESPACE}:`) && !CURRENT_CACHES.has(name),
+            )
+            .map((name) => caches.delete(name)),
+        ),
       )
-
-      // IMPORTANT: `claim()` sets this worker as the active worker for all clients that
-      // match the workers scope and triggers an `oncontrollerchange` event for
-      // the clients.
-      .then(() => self.clients.claim())
+      .then(() => self.clients.claim()),
   );
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") {
+    self.skipWaiting();
+    return;
+  }
+  if (
+    event.data?.type === "SET_LOCALE" &&
+    (event.data.locale === "en" || event.data.locale === "es") &&
+    typeof event.source?.id === "string"
+  ) {
+    preferenceWrite = preferenceWrite
+      .catch(() => null)
+      .then(() => caches.open(PREFERENCE_CACHE))
+      .then((cache) =>
+        cache.put(
+          new Request(
+            new URL(localeKey(event.source.id), self.location.origin),
+          ),
+          new Response(event.data.locale, {
+            headers: { "content-type": "text/plain" },
+          }),
+        ),
+      );
+    event.waitUntil?.(preferenceWrite);
+  }
+});
+
+async function localeFor(clientId) {
+  await preferenceWrite.catch(() => null);
+  const stored = await caches
+    .open(PREFERENCE_CACHE)
+    .then((cache) => cache.match(localeKey(clientId)));
+  const locale = stored ? await stored.text() : "en";
+  return locale === "es" ? "es" : "en";
+}
+
+async function navigation(request, locale) {
+  const cache = await caches.open(PAGE_CACHE);
+  try {
+    const response = await fetch(request);
+    if (response.ok && response.headers.get("content-language") === "en") {
+      await cache.put(request, response.clone());
+    }
+    return response;
+  } catch {
+    return (
+      (await cache.match(request)) ||
+      (await caches
+        .open(ASSET_CACHE)
+        .then((assets) => assets.match(`/offline.${locale}.html?v=${VERSION}`)))
+    );
+  }
+}
+
+async function asset(request) {
+  const requestedVersion = new URL(request.url).searchParams.get("v");
+  if (requestedVersion !== null && requestedVersion !== VERSION) {
+    return fetch(request);
+  }
+  const cache = await caches.open(ASSET_CACHE);
+  const cached = await cache.match(request);
+  if (cached) {
+    return cached;
+  }
+  const response = await fetch(request);
+  if (response.ok && response.type !== "opaque") {
+    await cache.put(request, response.clone());
+  }
+  return response;
+}
+
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") {
+    return;
+  }
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      localeFor(event.clientId).then((locale) =>
+        navigation(event.request, locale),
+      ),
+    );
+    return;
+  }
+  if (CACHE_FIRST_PATHS.has(url.pathname)) {
+    event.respondWith(asset(event.request));
+  }
 });
